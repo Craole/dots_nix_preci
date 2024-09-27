@@ -27,8 +27,8 @@ in
       enable = true;
       icons = true;
       git = true;
-      enableFishIntegration = home.fish.enable;
-      enableZshIntegration = home.zsh.enable;
+      enableFishIntegration = config.programs.fish.enable;
+      enableZshIntegration = config.programs.zsh.enable;
       extraOptions = [
         "--group-directories-first"
         "--header"
