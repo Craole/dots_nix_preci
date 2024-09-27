@@ -16,18 +16,28 @@
       home-manager,
       ...
     }:
+    let
+      modules = {
+        hosts = {
+          preci = ./home/configurations/preci;
+        };
+        users = {
+          craole = ./home/configurations/craole;
+        };
+      };
+    in
     {
       nixosConfigurations = {
         preci = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./core/configurations/preci.nix
+            modules.hosts.preci
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.craole.imports = [
-                ./home/configurations/craole.nix
+                modules.users.craole
               ];
 
               home-manager.extraSpecialArgs = {
