@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs,... }:
 {
   home = {
+    inherit (nixosConfig.system)stateVersion;
     packages = with pkgs; [ ];
     sessionVariables = {
       EDITOR = "hx";
