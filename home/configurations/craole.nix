@@ -1,4 +1,4 @@
-{ pkgs,... }:
+{ nixosConfig,pkgs,... }:
 {
   home = {
     inherit (nixosConfig.system)stateVersion;
