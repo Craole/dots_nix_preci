@@ -160,26 +160,15 @@
     bat
   ];
 
-  programs = {
-    firefox.enable = true;
-    git.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
+  users.users = {
+    craole = {
+      isNormalUser = true;
+      description = "Craole";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      packages = with pkgs; [ zed-editor ];
     };
-  };
-
-  users.users.craole = {
-    isNormalUser = true;
-    description = "Craole";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    packages = with pkgs; [
-      code-cursor
-      zed-editor
-      zimfw
-    ];
   };
 }
