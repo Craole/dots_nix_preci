@@ -1,7 +1,10 @@
-{ nixosConfig,pkgs,... }:let editor=pkgs.helix;in
+{ nixosConfig, pkgs, ... }:
+let
+  editor ="hx";
+in
 {
   home = {
-    inherit (nixosConfig.system)stateVersion;
+    inherit (nixosConfig.system) stateVersion;
     packages = with pkgs; [ ];
     sessionVariables = {
       EDITOR = editor;
@@ -19,6 +22,24 @@
         };
         credentials.helper = "cache --timeout=3600";
       };
+    };
+    eza={
+      enable = true;
+      icons = true;
+      git = true;
+      enableFishIntegration=home.fish.enable;
+      enableZshIntegration=home.zsh.enable;
+      extraOptions = [
+        "--group-directories-first"
+        "--header"
+      ];
+    };
+    starship = {
+      enable = true;
+    };
+    direnv = {
+      enable = true;
+      silent = true;
     };
     zsh = {
       enable = true;
