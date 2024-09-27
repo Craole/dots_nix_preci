@@ -20,5 +20,36 @@
         credentials.helper = "cache --timeout=3600";
       };
     };
+    zsh = {
+      enable = true;
+      enableAutosuggestions = true;
+      enableCompletion = true;
+      ohMyZsh = {
+        enable = true;
+        theme = "powerlevel10k/powerlevel10k";
+        plugins = [
+          "git"
+          "git-prompt"
+          "zsh-autosuggestions"
+          "zsh-syntax-highlighting"
+        ];
+      };
+      history = {
+        path = "$HOME/.zsh_history";
+        size = 10000;
+        ignoreDups = true;
+        ignoreSpace = true;
+      };
+      shellAliases = {
+        ll = "ls -l";
+        la = "ls -a";
+        l = "ls -CF";
+      };
+      initExtra = ''
+        export EDITOR="hx"
+        export PAGER="less"
+        export LESS="-R"
+      '';
+    };
   };
 }
