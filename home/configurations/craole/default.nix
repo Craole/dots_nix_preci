@@ -6,7 +6,7 @@ let
 
   # Moduules
   home = import ./home.nix { inherit nixosConfig editor; };
-  git = import ./git.nix { inherit editor; };
+  gui = import ./gui.nix { inherit editor; };
   tty = import ./tty.nix { inherit config; };
 in
 {
