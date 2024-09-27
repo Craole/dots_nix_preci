@@ -1,6 +1,7 @@
 { nixosConfig, pkgs, ... }:
 let
   editor = "hx";
+  config = nixosConfig.home-manager.users.craole;
 in
 {
   home = {
@@ -18,7 +19,7 @@ in
       extraConfig = {
         init.defaultBranch = "main";
         core = {
-          editor = "$EDITOR";
+          inherit editor;
         };
         credentials.helper = "cache --timeout=3600";
       };
@@ -27,11 +28,10 @@ in
       enable = true;
       icons = true;
       git = true;
-      enableFishIntegration = config.programs.fish.enable;
-      enableZshIntegration = config.programs.zsh.enable;
+      # enableFishIntegration = config.programs.fish.enable;
+      # enableZshIntegration = config.programs.zsh.enable;
       extraOptions = [
         "--group-directories-first"
-        "--header"
       ];
     };
     starship = {
@@ -41,35 +41,8 @@ in
       enable = true;
       silent = true;
     };
-    zsh = {
+    firefox = {
       enable = true;
-      enableAutosuggestions = true;
-      enableCompletion = true;
-      # ohMyZsh = {
-      #   enable = true;
-      #   theme = "powerlevel10k/powerlevel10k";
-      #   plugins = [
-      #     "git"
-      #     "git-prompt"
-      #     "zsh-autosuggestions"
-      #     "zsh-syntax-highlighting"
-      #   ];
-      # };
-      history = {
-        size = 10000;
-        ignoreDups = true;
-        ignoreSpace = true;
-      };
-      shellAliases = {
-        ll = "ls -l";
-        la = "ls -a";
-        l = "ls -CF";
-      };
-      initExtra = ''
-        export EDITOR=${editor}
-        export PAGER="less"
-        export LESS="-R"
-      '';
     };
   };
 }

@@ -31,7 +31,7 @@
               ];
 
               home-manager.extraSpecialArgs = {
-                inherit inputs self;
+                inherit inputs;
               };
             }
           ];
