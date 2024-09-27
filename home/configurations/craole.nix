@@ -1,10 +1,10 @@
-{ nixosConfig,pkgs,... }:
+{ nixosConfig,pkgs,... }:let editor=pkgs.helix;in
 {
   home = {
     inherit (nixosConfig.system)stateVersion;
     packages = with pkgs; [ ];
     sessionVariables = {
-      EDITOR = "hx";
+      EDITOR = editor;
     };
   };
   programs = {
@@ -24,18 +24,17 @@
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
-      ohMyZsh = {
-        enable = true;
-        theme = "powerlevel10k/powerlevel10k";
-        plugins = [
-          "git"
-          "git-prompt"
-          "zsh-autosuggestions"
-          "zsh-syntax-highlighting"
-        ];
-      };
+      # ohMyZsh = {
+      #   enable = true;
+      #   theme = "powerlevel10k/powerlevel10k";
+      #   plugins = [
+      #     "git"
+      #     "git-prompt"
+      #     "zsh-autosuggestions"
+      #     "zsh-syntax-highlighting"
+      #   ];
+      # };
       history = {
-        path = "$HOME/.zsh_history";
         size = 10000;
         ignoreDups = true;
         ignoreSpace = true;
@@ -46,7 +45,7 @@
         l = "ls -CF";
       };
       initExtra = ''
-        export EDITOR="hx"
+        export EDITOR=${editor}
         export PAGER="less"
         export LESS="-R"
       '';
