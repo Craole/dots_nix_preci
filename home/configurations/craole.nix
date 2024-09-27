@@ -1,6 +1,6 @@
 { nixosConfig, pkgs, ... }:
 let
-  editor ="hx";
+  editor = "hx";
 in
 {
   home = {
@@ -23,12 +23,12 @@ in
         credentials.helper = "cache --timeout=3600";
       };
     };
-    eza={
+    eza = {
       enable = true;
       icons = true;
       git = true;
-      enableFishIntegration=home.fish.enable;
-      enableZshIntegration=home.zsh.enable;
+      enableFishIntegration = home.fish.enable;
+      enableZshIntegration = home.zsh.enable;
       extraOptions = [
         "--group-directories-first"
         "--header"
