@@ -9,7 +9,14 @@
     };
   };
 
-  outputs = inputs@{self, nixpkgs, home-manager, ... }: {
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    {
       nixosConfigurations = {
         preci = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -22,7 +29,7 @@
               home-manager.users.craole.imports = [
                 ./home/configurations/craole.nix
               ];
-  
+
               home-manager.extraSpecialArgs = {
                 inherit inputs self;
               };
@@ -31,4 +38,4 @@
         };
       };
     };
-  }
+}
