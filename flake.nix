@@ -11,7 +11,7 @@
 
   outputs = inputs@{self, nixpkgs, home-manager, ... }: {
       nixosConfigurations = {
-        hostname = nixpkgs.lib.nixosSystem {
+        preci = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./core/configurations/preci.nix
