@@ -17,9 +17,7 @@
       ...
     }:
     let
-      # flakePath = builtins.dirOf ./. + "/flake.nix";
-      # flakePath = toString ./.;      
-      flakePath = builtins.getEnv "PWD" + "/flake.nix";
+      flakePath = __getEnv "PWD";
 
     in
     {
