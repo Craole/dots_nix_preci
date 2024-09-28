@@ -169,7 +169,6 @@
             {
               command = "nixos-rebuild";
               options = [
-                "SETENV"
                 "NOPASSWD"
               ];
             }
