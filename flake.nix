@@ -44,7 +44,7 @@
               };
             }
           ];
-          extraArgs = {
+          specialArgs = {
             inherit inputs flakePath;
           };
         };
