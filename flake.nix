@@ -17,8 +17,7 @@
       ...
     }:
     let
-      flakePath = __getEnv "PWD";
-
+      flakePath = getEnv "PWD";
     in
     {
       nixosConfigurations = {
