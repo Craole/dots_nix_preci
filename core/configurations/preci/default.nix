@@ -209,7 +209,7 @@
       LESSCHARSET = "UTF-8";
       COLORTERM = "truecolor";
       TERM = "xterm-256color";
-      FLAKE = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
+      FLAKE = toString (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
     };
     shellAliases = {
       h = "history";
@@ -224,7 +224,7 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
   };
