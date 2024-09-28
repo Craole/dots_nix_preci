@@ -161,7 +161,6 @@
   security = {
     sudo = {
       execWheelOnly = true;
-      # wheelNeedsPassword = false; # TODO: This is supposedly unsafe
       extraRules = [
         {
           users = [ "craole" ];
@@ -175,6 +174,7 @@
           ];
         }
       ];
+      # wheelNeedsPassword = false; # TODO: This is supposedly unsafe
     };
     rtkit.enable = true;
   };
@@ -193,12 +193,21 @@
     variables = {
       EDITOR = "hx";
       VISUAL = "zeditor";
-      PAGER = "bat --paging=always --plain --style=numbers,changes";
-      MANPAGER = "less";
-      LESS = "-R";
+      PAGER = "bat --paging=always";
+      MANPAGER = "bat --paging=always --plain";
+      LESS = "-R"; # Enables less to display more detailed information
+      LESS_ADVANCED_PREPROCESSOR = "1";
+      LESS_TERMCAP_mb = "$(printf '\e[1;31m')";
+      LESS_TERMCAP_md = "$(printf '\e[1;36m')";
+      LESS_TERMCAP_me = "$(printf '\e[0m')";
+      LESS_TERMCAP_se = "$(printf '\e[0m')";
+      LESS_TERMCAP_so = "$(printf '\e[01;33m')";
+      LESS_TERMCAP_ue = "$(printf '\e[0m')";
+      LESS_TERMCAP_us = "$(printf '\e[1;32m')";
       LESSCHARSET = "UTF-8";
       COLORTERM = "truecolor";
       TERM = "xterm-256color";
+      FLAKE = lib.filesystem.locateDominatingFile "flake.nix";
     };
   };
 
