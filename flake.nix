@@ -17,10 +17,7 @@
       ...
     }:
     let
-      currentFileInfo = __curPos;
-      currentFilePath = currentFileInfo.file;
-      currentDir = builtins.dirOf currentFilePath;
-      flakePath = currentDir;
+      flakePath = builtins.dirOf ./. + "/flake.nix";
     in
     {
       nixosConfigurations = {
