@@ -18,7 +18,9 @@
     }:
     let
       # flakePath = builtins.dirOf ./. + "/flake.nix";
-      flakePath = toString ./.;
+      # flakePath = toString ./.;      
+      flakePath = builtins.getEnv "PWD" + "/flake.nix";
+
     in
     {
       nixosConfigurations = {
