@@ -168,6 +168,7 @@
             {
               command = "ALL";
               options = [
+                "SETENV"
                 "NOPASSWD"
               ];
             }
@@ -212,7 +213,7 @@
     };
     aliases = {
       h = "history";
-      la = "eza --group-directories-first --git --almost-all";
+      la = "eza --group-directories-first --git --almost-all  --smart-group --absolute --icons=auto";
       ll = "la --long";
       ".." = "cd ..";
       "..." = "cd ../..";
