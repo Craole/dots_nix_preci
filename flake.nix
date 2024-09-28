@@ -17,8 +17,7 @@
       ...
     }:
     let
-      flakeDir = builtins.getEnv "PWD";
-      flakePath = builtins.toPath ./.;
+      flakePath = builtins.getEnv "PWD";
     in
     {
       nixosConfigurations = {
@@ -31,7 +30,7 @@
               home-manager = {
                 backupFileExtension = "bac";
                 extraSpecialArgs = {
-                  inherit inputs;
+                  inherit inputs flakePath;
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
@@ -42,7 +41,7 @@
             }
           ];
           specialArgs = {
-            inherit inputs flakePath flakeDir;
+            inherit inputs flakePath;
           };
         };
       };

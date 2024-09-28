@@ -76,7 +76,7 @@
     networkmanager.enable = true;
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-    useDHCP = lib.mkDefault true;
+    # useDHCP = lib.mkDefault true;
 
     interfaces = {
       eno1.useDHCP = lib.mkDefault true;
@@ -91,13 +91,13 @@
   };
 
   nixpkgs = {
-    config.allowUnfree = true;
+    config.allowUnfree = lib.mkDefault true;
     hostPlatform = lib.mkDefault "x86_64-linux";
   };
 
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    pulseaudio.enable = false;
+    pulseaudio.enable = lib.mkDefault false;
   };
 
   system = {
@@ -105,12 +105,12 @@
   };
 
   time = {
-    timeZone = "America/Jamaica";
-    hardwareClockInLocalTime = true;
+    timeZone = lib.mkDefault "America/Jamaica";
+    hardwareClockInLocalTime = lib.mkDefault true;
   };
 
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = lib.mkDefault "en_US.UTF-8";
   };
 
   services = {
