@@ -192,7 +192,7 @@
       bat
       lsd
     ];
-    variables = {
+    sessionVariables = {
       EDITOR = "hx";
       VISUAL = "zeditor";
       PAGER = "bat --paging=always";
