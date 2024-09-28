@@ -167,7 +167,7 @@
           users = [ "craole" ];
           commands = [
             {
-              command = "nixos-rebuild";
+              command = "ALL";
               options = [
                 "NOPASSWD"
               ];
