@@ -190,7 +190,7 @@
       speedtest-go
       nix-info
       bat
-      lsd
+      warp-terminal
     ];
     sessionVariables = {
       EDITOR = "hx";
@@ -213,7 +213,7 @@
     };
     shellAliases = {
       h = "history";
-      la = "eza --group-directories-first --git --almost-all  --smart-group --absolute --icons=auto";
+      la = "eza --group-directories-first --git --almost-all  --smart-group --absolute";
       ll = "la --long";
       ".." = "cd ..";
       "..." = "cd ../..";
@@ -221,6 +221,12 @@
       "....." = "cd ../../../..";
       x = "exit";
     };
+  };
+
+  fonts = {
+    fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    ];
   };
 
   users.users = {
