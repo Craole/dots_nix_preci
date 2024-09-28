@@ -197,6 +197,7 @@
     sessionVariables = {
       EDITOR = "hx";
       VISUAL = "zeditor";
+      BROWSER = "brave";
       PAGER = "bat --paging=always";
       MANPAGER = "bat --paging=always --plain";
       LESS = "-R"; # Enables less to display more detailed information
