@@ -215,6 +215,7 @@
       FLAKE_PATH = "${flakePath}";
       FLAKE_DIR = toString flakePath;
       FLAKE_RAW = flakePath;
+      FLAKE = "$HOME/.dots";
     };
     shellAliases = {
       h = "history";
