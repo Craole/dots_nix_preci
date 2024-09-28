@@ -1,4 +1,4 @@
-{nixosConfig, ...}:
+{nixosConfig, ...}:let
   #| Variables
   config = nixosConfig.home-manager.users.craole;
   editor = "hx";
