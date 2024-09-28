@@ -15,7 +15,8 @@
       nixpkgs,
       home-manager,
       ...
-    }:let flakePath = builtins.toString ./.; in
+    }:let flakePath = builtins.toString ./.; 
+    args={inherit flakePath inputs}; in
     {
       nixosConfigurations = {
         preci = nixpkgs.lib.nixosSystem {
@@ -31,12 +32,12 @@
               ];
 
               home-manager.extraSpecialArgs = {
-                inherit inputs flakePath;
+                inherit args;
               };
             }
           ];
           specialArgs = {
-            inherit inputs flakePath;
+            inherit args;
           };
         };
       };
