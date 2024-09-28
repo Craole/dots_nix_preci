@@ -195,6 +195,11 @@
       brave
     ];
     variables = {
+      FLAKE_PATH = "${flakePath}";
+      FLAKE_DIR = toString flakePath;
+      FLAKE_RAW = flakePath;
+      FLAKE_FILE = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
+      FLAKE = "$HOME/.dots";
       EDITOR = "hx";
       VISUAL = "zeditor";
       BROWSER = "brave";
@@ -212,11 +217,6 @@
       LESSCHARSET = "UTF-8";
       COLORTERM = "truecolor";
       TERM = "xterm-256color";
-      # FLAKE = toString (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
-      FLAKE_PATH = "${flakePath}";
-      FLAKE_DIR = toString flakePath;
-      FLAKE_RAW = flakePath;
-      FLAKE = "$HOME/.dots";
     };
     shellAliases = {
       h = "history";

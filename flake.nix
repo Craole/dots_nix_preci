@@ -17,7 +17,8 @@
       ...
     }:
     let
-      flakePath = builtins.getEnv "PWD";
+      flakePath = "$HOME/.dots";
+      flake = builtins.getEnv "PWD";
     in
     {
       nixosConfigurations = {
@@ -41,7 +42,7 @@
             }
           ];
           specialArgs = {
-            inherit inputs flakePath;
+            inherit inputs flakePath flake;
           };
         };
       };
