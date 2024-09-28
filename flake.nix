@@ -18,6 +18,7 @@
     }:
     let
       flakePath = builtins.getEnv "PWD";
+      flake = builtins.getFlake flakePath;
     in
     {
       nixosConfigurations = {
