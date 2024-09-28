@@ -12,7 +12,7 @@ in
 {
   imports = [
     home
-    git
+    gui
     tty
   ];
 }
