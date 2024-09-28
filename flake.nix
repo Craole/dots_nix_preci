@@ -17,7 +17,8 @@
       ...
     }:
     let
-      flakePath = builtins.dirOf ./. + "/flake.nix";
+      # flakePath = builtins.dirOf ./. + "/flake.nix";
+      flakePath = toString ./.;
     in
     {
       nixosConfigurations = {
