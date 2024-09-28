@@ -212,7 +212,7 @@
       COLORTERM = "truecolor";
       TERM = "xterm-256color";
       # FLAKE = toString (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
-      FLAKE = flakePath;
+      FLAKE = "${flakePath}";
     };
     shellAliases = {
       h = "history";
