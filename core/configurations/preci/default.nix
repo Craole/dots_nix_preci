@@ -105,7 +105,7 @@
 
   time = {
     timeZone = "America/Jamaica";
-    hardwareClockInKernel = true;
+    hardwareClockInLocalTime = true;
   };
 
   i18n = {
