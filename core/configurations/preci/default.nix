@@ -3,6 +3,7 @@
   lib,
   pkgs,
   modulesPath,
+  flakePath,
   ...
 }:
 
@@ -209,7 +210,8 @@
       LESSCHARSET = "UTF-8";
       COLORTERM = "truecolor";
       TERM = "xterm-256color";
-      FLAKE = toString (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
+      # FLAKE = toString (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
+      FLAKE = flakePath;
     };
     shellAliases = {
       h = "history";
