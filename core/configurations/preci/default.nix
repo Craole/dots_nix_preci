@@ -211,7 +211,7 @@
       TERM = "xterm-256color";
       FLAKE = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
     };
-    aliases = {
+    shellAliases = {
       h = "history";
       la = "eza --group-directories-first --git --almost-all  --smart-group --absolute --icons=auto";
       ll = "la --long";
