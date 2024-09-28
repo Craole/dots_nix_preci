@@ -17,7 +17,6 @@
       ...
     }:
     let
-      currentFile = builtins.toString ./.;
       currentFileInfo = __curPos;
       currentFilePath = currentFileInfo.file;
       currentDir = builtins.dirOf currentFilePath;
