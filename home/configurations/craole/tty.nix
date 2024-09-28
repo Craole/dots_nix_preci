@@ -10,6 +10,11 @@ in
       enableFishIntegration = fish.enable;
       enableZshIntegration = zsh.enable;
     };
+    lsd = {
+      enable = true;
+      enableAliases = true;
+      settings = { };
+    };
     eza = {
       enable = true;
       icons = true;

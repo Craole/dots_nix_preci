@@ -69,6 +69,7 @@
       ];
     };
   };
+
   networking = {
     hostName = "preci";
     networkmanager.enable = true;
@@ -102,8 +103,14 @@
     stateVersion = "24.05";
   };
 
-  time.timeZone = "America/Jamaica";
-  i18n.defaultLocale = "en_US.UTF-8";
+  time = {
+    timeZone = "America/Jamaica";
+    hardwareClockInKernel = true;
+  };
+
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  };
 
   services = {
     displayManager = {
@@ -114,9 +121,13 @@
       sddm.enable = true;
     };
 
-    desktopManager.plasma6.enable = true;
+    desktopManager = {
+      plasma6.enable = true;
+    };
 
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+    };
 
     tailscale = {
       enable = true;
@@ -126,6 +137,7 @@
       enable = true;
       loadModels = [
         "mistral-nemo"
+        "yi-coder:9b"
       ];
     };
 
@@ -144,21 +156,46 @@
         variant = "";
       };
     };
-
   };
 
-  security.rtkit.enable = true;
+  security = {
+    sudo = {
+      execWheelOnly = true;
+      # wheelNeedsPassword = false; # TODO: This is supposedly unsafe
+      extraRules = [
+        {
+          users = [ "craole" ];
+          commands = [ "nix-rebuild" ];
+          options = [ "NOPASSWD" ];
+          description = "rebuild";
+        }
+      ];
+    };
+    rtkit.enable = true;
+  };
 
-  environment.systemPackages = with pkgs; [
-    helix
-    nil
-    nixfmt-rfc-style
-    btop
-    dust
-    speedtest-go
-    nix-info
-    bat
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      helix
+      nil
+      nixfmt-rfc-style
+      btop
+      dust
+      speedtest-go
+      nix-info
+      bat
+    ];
+    variables = {
+      EDITOR = "hx";
+      VISUAL = "zeditor";
+      PAGER = "bat --paging=always --plain --style=numbers,changes";
+      MANPAGER = "less";
+      LESS = "-R";
+      LESSCHARSET = "UTF-8";
+      COLORTERM = "truecolor";
+      TERM = "xterm-256color";
+    };
+  };
 
   users.users = {
     craole = {
