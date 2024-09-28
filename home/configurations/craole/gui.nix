@@ -17,14 +17,14 @@
       enable = true;
       profiles.default = {
         isDefault = true;
-        settings = {
-          "browser.startup.homepage" = "https://github.com/Craole/nixos-config";
-          "browser.tabs.warnOnCloseOtherTabs" = false;
-          "browser.tabs.warnOnOpen" = false;
-          "browser.urlbar.suggest.bookmark" = false;
-          "browser.urlbar.suggest.history" = false;
-          "browser.urlbar.suggest.openpage" = false;
-          "datareporting.healthreport.uploadEnabled" = false;
+        # settings = {
+        #   "browser.startup.homepage" = "https://github.com/Craole/nixos-config";
+        #   "browser.tabs.warnOnCloseOtherTabs" = false;
+        #   "browser.tabs.warnOnOpen" = false;
+        #   "browser.urlbar.suggest.bookmark" = false;
+        #   "browser.urlbar.suggest.history" = false;
+        #   "browser.urlbar.suggest.openpage" = false;
+        #   "datareporting.healthreport.uploadEnabled" = false;
           # "dom.battery.enabled" = false;
           # "dom.enable_performance" = false;
           # "dom.enable_resource_timing" = false;
@@ -85,9 +85,8 @@
           # "webgl.disabled" = true;
           # "webgl.enable-debug-renderer-info" = false;
           # "webgl.min_capability_mode" = true;
-        };
+        # };
       };
     };
-
   };
 }

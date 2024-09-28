@@ -192,6 +192,7 @@
       nix-info
       bat
       warp-terminal
+      brave
     ];
     sessionVariables = {
       EDITOR = "hx";
