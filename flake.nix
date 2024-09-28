@@ -30,6 +30,7 @@
             ./core/configurations/preci
             home-manager.nixosModules.home-manager
             {
+              home-manager.backupFileExtension = "bac";
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.craole.imports = [
