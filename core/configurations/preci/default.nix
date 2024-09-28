@@ -167,7 +167,6 @@
           users = [ "craole" ];
           commands = [ "nix-rebuild" ];
           options = [ "NOPASSWD" ];
-          description = "rebuild";
         }
       ];
     };
