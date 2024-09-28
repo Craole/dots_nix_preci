@@ -5,12 +5,15 @@ let
 in
 {
   programs = {
-  bash = {
-    enable = true;
-    enableCompletion = true;
-    historyControl = [ "erasedups" "ignorespace" ];
-    historyFileSize = 10000;
-  };
+    bash = {
+      enable = true;
+      enableCompletion = true;
+      historyControl = [
+        "erasedups"
+        "ignorespace"
+      ];
+      historyFileSize = 10000;
+    };
     starship = {
       enable = true;
       enableFishIntegration = fish.enable;
