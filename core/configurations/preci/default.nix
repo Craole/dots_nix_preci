@@ -194,7 +194,7 @@
       warp-terminal
       brave
     ];
-    sessionVariables = {
+    variables = {
       EDITOR = "hx";
       VISUAL = "zeditor";
       BROWSER = "brave";
