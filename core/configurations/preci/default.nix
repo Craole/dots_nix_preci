@@ -165,8 +165,11 @@
       extraRules = [
         {
           users = [ "craole" ];
-          commands = [ "nix-rebuild" ];
-          options = [ "NOPASSWD" ];
+          commands = [ "nixos-rebuild" ];
+          options = [
+            "SETENV"
+            "NOPASSWD"
+          ];
         }
       ];
     };
