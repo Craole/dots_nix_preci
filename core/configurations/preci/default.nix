@@ -3,7 +3,7 @@
   lib,
   pkgs,
   modulesPath,
-  args,
+  flakePath,
   ...
 }:
 
@@ -137,7 +137,7 @@
     ollama = {
       enable = true;
       loadModels = [
-        "mistral-nemo"
+        # "mistral-nemo"
         "yi-coder:9b"
       ];
     };
@@ -211,7 +211,7 @@
       COLORTERM = "truecolor";
       TERM = "xterm-256color";
       # FLAKE = toString (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
-      FLAKE = args.flakePath;
+      FLAKE = flakePath;
     };
     shellAliases = {
       h = "history";

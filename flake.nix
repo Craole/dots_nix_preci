@@ -18,9 +18,10 @@
     }:
     let
       flakePath = builtins.toString ./.;
-      args = {
-        inherit flakePath inputs;
-      };
+      currentFileInfo = __curPos;
+      currentFilePath = currentFileInfo.file;
+      currentDir = builtins.dirOf currentFilePath;
+      flakePath = currentDir;
     in
     {
       nixosConfigurations = {
@@ -30,32 +31,21 @@
             ./core/configurations/preci
             home-manager.nixosModules.home-manager
             {
-              # home-manager.backupFileExtension = "bac";
-              # home-manager.useGlobalPkgs = true;
-              # home-manager.useUserPackages = true;
-              # home-manager.users.craole.imports = [
-              #   ./home/configurations/craole
-              # ];
-
-              # home-manager.extraSpecialArgs = {
-              #   inherit args;
-              # };
               home-manager = {
                 backupFileExtension = "bac";
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.craole.imports = [
                   ./home/configurations/craole
                 ];
-
-                extraSpecialArgs = {
-                  inherit args;
-                };
               };
             }
           ];
-          specialArgs = {
-            inherit args;
+          extraArgs = {
+            inherit inputs flakePath;
           };
         };
       };
