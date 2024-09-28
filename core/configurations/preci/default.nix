@@ -189,6 +189,7 @@
       speedtest-go
       nix-info
       bat
+      lsd
     ];
     variables = {
       EDITOR = "hx";
@@ -207,7 +208,17 @@
       LESSCHARSET = "UTF-8";
       COLORTERM = "truecolor";
       TERM = "xterm-256color";
-      FLAKE = toString (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
+      FLAKE = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
+    };
+    aliases = {
+      h = "history";
+      la = "eza --group-directories-first --git --almost-all";
+      ll = "la --long";
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      "....." = "cd ../../../..";
+      x = "exit";
     };
   };
 
