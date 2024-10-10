@@ -57,7 +57,7 @@
         lg = "log --oneline --graph --decorate"; # Pretty log output
         aa = "add --all"; # Add all changes to the index
         rb = "rebase"; # Start a rebase session
-        acp='''!f() { git status --porcelain > /dev/null && git status --porcelain && git add --all && git commit -m "${1:-Auto commit}" && git push; }; f''';
+        acp='''!f() { git add --all && git status --porcelain >/dev/null && git commit $* && git push; }; f''';
       };
     };
     firefox = {
