@@ -64,10 +64,12 @@
             [ "$(git status --porcelain)" ] && \
             git add --all && \
             git status --short && \
-            git commit --quiet --message="${*:-Auto Update}" && \
+            msg="Auto Update" [ "$*" ] && msg="$*" \
+            git commit --quiet --message="$msg" && \
             git push;
           }; f
-        ''';      };
+        ''';      
+        };
     };
     firefox = {
       enable = true;
