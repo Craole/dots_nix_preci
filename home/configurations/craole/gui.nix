@@ -70,7 +70,7 @@
               msg="$*"
             fi; \
             git commit --quiet --message="$msg" && \
-            git push
+            git push;
           }; f
         '';
       };
