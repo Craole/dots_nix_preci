@@ -59,17 +59,17 @@
         rb = "rebase"; # Start a rebase session
         # pu='''!f() { [ \"$(git status --porcelain)\" ] && git add --all && git status --short && git commit --quiet --message=\"${*:-"Auto Update"}\" && git push; }; f''';
 
-        pu = '''
+        pu = ''
           !f() {
             [ "$(git status --porcelain)" ] && \
             git add --all && \
             git status --short && \
-            msg="Auto Update" [ "$*" ] && msg="$*" \
+            msg="Auto Update"; [ "$*" ] && msg="$*"; \
             git commit --quiet --message="$msg" && \
-            git push;
+            git push
           }; f
-        ''';      
-        };
+        '';
+      };
     };
     firefox = {
       enable = true;

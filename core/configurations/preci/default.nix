@@ -205,7 +205,7 @@
       BROWSER = "brave";
       PAGER = "bat --paging=always";
       MANPAGER = "bat --paging=always --plain";
-      LESS = "-R"; 
+      LESS = "-R";
       LESS_ADVANCED_PREPROCESSOR = "1";
       LESS_TERMCAP_mb = "$(printf '\e[1;31m')";
       LESS_TERMCAP_md = "$(printf '\e[1;36m')";
