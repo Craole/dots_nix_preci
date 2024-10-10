@@ -49,7 +49,7 @@
       ];
       aliases = {
         st = "status"; # Show the working tree status
-        sty = "status --porcelain"; # Show the working tree status in machine-readable format
+        sty = "status --porcelain &2>/dev/null"; # Show the working tree status in machine-friendly format
         co = "checkout"; # Checkout a branch or file
         br = "branch"; # List, create, or delete branches
         cm = "commit --message"; # Commit changes
@@ -57,6 +57,7 @@
         lg = "log --oneline --graph --decorate"; # Pretty log output
         aa = "add --all"; # Add all changes to the index
         rb = "rebase"; # Start a rebase session
+        acp='''!f() { git status --porcelain > /dev/null && git status --porcelain && git add --all && git commit -m "${1:-Auto commit}" && git push; }; f''';
       };
     };
     firefox = {
