@@ -201,6 +201,7 @@
       FLAKE_FILE = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
       FLAKE = "$HOME/.dots";
       EDITOR = "hx";
+      EDITOR = "${pkgs.helix}/bin/hx";
       VISUAL = "zeditor";
       BROWSER = "brave";
       PAGER = "bat --paging=always";
