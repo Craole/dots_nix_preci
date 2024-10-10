@@ -137,7 +137,7 @@
     ollama = {
       enable = true;
       loadModels = [
-        # "mistral-nemo"
+        "mistral-nemo"
         "yi-coder:9b"
       ];
     };
@@ -200,7 +200,7 @@
       FLAKE_RAW = flakePath;
       FLAKE_FILE = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
       FLAKE = "$HOME/.dots";
-      EDITOR = "hx";
+      # EDITOR = "hx";`
       EDITOR = "${pkgs.helix}/bin/hx";
       VISUAL = "zeditor";
       BROWSER = "brave";
