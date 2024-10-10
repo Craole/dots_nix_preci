@@ -49,11 +49,13 @@
       ];
       aliases = {
         st = "status"; # Show the working tree status
+        sty = "status --porcelain"; # Show the working tree status in machine-readable format
         co = "checkout"; # Checkout a branch or file
         br = "branch"; # List, create, or delete branches
-        cm = "commit -m"; # Commit with a message
+        cm = "commit --message"; # Commit changes
+        cam = "commit --amend --message"; # Amend the previous commit
         lg = "log --oneline --graph --decorate"; # Pretty log output
-        ap = "add -p"; # Add changes interactively
+        aa = "add --all"; # Add all changes to the index
         rb = "rebase"; # Start a rebase session
       };
     };
