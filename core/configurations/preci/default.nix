@@ -200,13 +200,12 @@
       FLAKE_RAW = flakePath;
       FLAKE_FILE = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
       FLAKE = "$HOME/.dots";
-      # EDITOR = "hx";`
-      EDITOR = "${pkgs.helix}/bin/hx";
+      EDITOR = "hx";
       VISUAL = "zeditor";
       BROWSER = "brave";
       PAGER = "bat --paging=always";
       MANPAGER = "bat --paging=always --plain";
-      LESS = "-R"; # Enables less to display more detailed information
+      LESS = "-R"; 
       LESS_ADVANCED_PREPROCESSOR = "1";
       LESS_TERMCAP_mb = "$(printf '\e[1;31m')";
       LESS_TERMCAP_md = "$(printf '\e[1;36m')";
