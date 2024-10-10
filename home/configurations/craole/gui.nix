@@ -59,7 +59,7 @@
         rb = "rebase"; # Start a rebase session
         # pu='''!f() { [ \"$(git status --porcelain)\" ] && git add --all && git status --short && git commit --quiet --message=\"${*:-"Auto Update"}\" && git push; }; f''';
 
-        pu = ''
+        up = ''
           !f() {
             [ "$(git status --porcelain)" ] && \
             git add --all && \
