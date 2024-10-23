@@ -34,5 +34,9 @@ in
       enableFishIntegration = fish.enable;
       enableZshIntegration = zsh.enable;
     };
+    direnv = {
+      enable = true;
+      silent = true;
+    };
   };
 }
