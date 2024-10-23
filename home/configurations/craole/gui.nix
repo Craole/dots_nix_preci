@@ -64,13 +64,20 @@
             [ "$(git status --porcelain)" ] && \
             git add --all && \
             git status --short && \
-            if [ -z "$1" ]; then
-              msg="Auto Update"
-            else
-              msg="$*"
-            fi; \
+            if [ -z "$1" ]; then \
+              git commit --quiet --message="Auto Update" && \
+              git push; \
+            else \
+              git commit --quiet --message="$1" && \
+              git push; \
+            fi
+          }; f
+        '';
+        pu = ''
+          !f() {
+            msg="Auto Update"; [ "$*" ] && msg="$*"; \
             git commit --quiet --message="$msg" && \
-            git push;
+            git push
           }; f
         '';
       };

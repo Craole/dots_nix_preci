@@ -244,7 +244,10 @@
         "networkmanager"
         "wheel"
       ];
-      packages = with pkgs; [ zed-editor ];
+      packages = with pkgs; [
+        zed-editor
+        vscode-fhs
+      ];
     };
   };
 }
