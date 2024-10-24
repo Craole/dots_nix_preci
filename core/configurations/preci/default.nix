@@ -124,7 +124,8 @@
     };
 
     desktopManager = {
-      plasma6.enable = true;
+      # plasma6.enable = true;
+      gnone.enable=true
     };
     # blueman.enable = true;
     libinput = {
@@ -148,7 +149,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      # jack.enable = true;
+      jack.enable = true;
     };
 
     xserver = {
@@ -192,7 +193,6 @@
       speedtest-go
       nix-info
       bat
-      warp-terminal
       brave
     ];
     variables = {
@@ -248,6 +248,7 @@
       packages = with pkgs; [
         zed-editor
         vscode-fhs
+        warp-terminal
       ];
     };
   };
