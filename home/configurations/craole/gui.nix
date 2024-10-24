@@ -1,4 +1,3 @@
-{ editor, ... }:
 {
   programs = {
     hyprland = {

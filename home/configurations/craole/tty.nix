@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, editor, ... }:
 let
   apps = config.programs;
   inherit (apps) fish zsh;

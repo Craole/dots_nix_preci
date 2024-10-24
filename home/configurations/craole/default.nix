@@ -6,8 +6,8 @@ let
 
   #| Moduules
   home = import ./home.nix { inherit nixosConfig editor; };
-  gui = import ./gui.nix { inherit editor; };
-  tty = import ./tty.nix { inherit config; };
+  gui = import ./gui.nix;
+  tty = import ./tty.nix { inherit config editor; };
 in
 {
   imports = [
