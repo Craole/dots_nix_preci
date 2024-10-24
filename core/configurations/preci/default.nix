@@ -114,6 +114,28 @@
     defaultLocale = lib.mkDefault "en_US.UTF-8";
   };
 
+  security = {
+    sudo = {
+      execWheelOnly = true;
+      extraRules = [
+        {
+          users = [ "craole" ];
+          commands = [
+            {
+              command = "ALL";
+              options = [
+                "SETENV"
+                "NOPASSWD"
+              ];
+            }
+          ];
+        }
+      ];
+      # wheelNeedsPassword = false; # TODO: This is supposedly unsafe
+    };
+    rtkit.enable = true;
+  };
+
   services = {
     displayManager = {
       autoLogin = {
@@ -161,26 +183,10 @@
     };
   };
 
-  security = {
-    sudo = {
-      execWheelOnly = true;
-      extraRules = [
-        {
-          users = [ "craole" ];
-          commands = [
-            {
-              command = "ALL";
-              options = [
-                "SETENV"
-                "NOPASSWD"
-              ];
-            }
-          ];
-        }
-      ];
-      # wheelNeedsPassword = false; # TODO: This is supposedly unsafe
+  programs = {
+    hyprland = {
+      enable = true;
     };
-    rtkit.enable = true;
   };
 
   environment = {
