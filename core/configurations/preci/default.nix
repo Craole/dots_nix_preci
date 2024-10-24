@@ -126,7 +126,7 @@
     desktopManager = {
       plasma6.enable = true;
     };
-    blueman.enable = true;
+    # blueman.enable = true;
     libinput = {
       enable = true;
     };
