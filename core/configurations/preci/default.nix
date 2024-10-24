@@ -98,7 +98,7 @@
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     pulseaudio.enable = lib.mkDefault false;
-    bluetooth.enable=lib.mkDefault true;
+    bluetooth.enable = lib.mkDefault true;
   };
 
   system = {
@@ -126,7 +126,7 @@
     desktopManager = {
       plasma6.enable = true;
     };
-
+    blueman.enable = true;
     libinput = {
       enable = true;
     };
