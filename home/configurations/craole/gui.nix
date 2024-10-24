@@ -1,8 +1,8 @@
 {
   programs = {
-    hyprland = {
-      enable = true;
-    };
+    # hyprland = {
+    #   enable = true;
+    # };
     firefox = {
       enable = true;
     };
