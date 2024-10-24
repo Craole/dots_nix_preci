@@ -124,8 +124,8 @@
     };
 
     desktopManager = {
-      # plasma6.enable = true;
-      gnone.enable=true
+      plasma6.enable = true;
+      # gnone.enable = true;
     };
     # blueman.enable = true;
     libinput = {
