@@ -20,7 +20,9 @@ in
       userEmail = "32288735+Craole@users.noreply.github.com";
       extraConfig = {
         init.defaultBranch = "main";
-        core.editor = editor;
+        core = {
+          inherit editor;
+        };
         credentials.helper = "cache --timeout=3600";
         pull.ff = "only";
         color.ui = "auto";

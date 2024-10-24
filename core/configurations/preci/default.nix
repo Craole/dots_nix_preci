@@ -77,7 +77,6 @@
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # useDHCP = lib.mkDefault true;
-
     interfaces = {
       eno1.useDHCP = lib.mkDefault true;
       wlp3s0.useDHCP = lib.mkDefault true;
@@ -149,7 +148,7 @@
       plasma6.enable = true;
       # gnone.enable = true;
     };
-    # blueman.enable = true;
+    blueman.enable = true;
     libinput = {
       enable = true;
     };
@@ -184,9 +183,7 @@
   };
 
   programs = {
-    hyprland = {
-      enable = true;
-    };
+    # hyprland.enable = true;
   };
 
   environment = {
