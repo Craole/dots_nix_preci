@@ -26,6 +26,8 @@
   lsd = import ./lsd;
   mpv = import ./mpv;
   nix = import ./nix;
+  ripgrep = import ./ripgrep;
+  starship = import ./starship;
 
   thunderbird = import ./thunderbird;
 }
