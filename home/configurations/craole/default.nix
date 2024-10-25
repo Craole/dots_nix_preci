@@ -26,8 +26,7 @@ let
 
   #| Modules
   # services = import ./services { inherit nixosConfig config prefs; };
-  custom = import ./programs { inherit config prefs; };
-  packages = import ../../packages;
+packages = import ../../packages;
 in
 {
   home = {
@@ -44,7 +43,7 @@ in
     };
   };
   imports = [
-    ./git.nix
+    ./programs
     # services
     # custom
     packages.git
