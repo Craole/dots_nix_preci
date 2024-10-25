@@ -65,7 +65,10 @@ in
       gitui
       git
       helix
+      lf
       lsd
+      mpv
+      nix
       ripgrep
       starship
     ]);

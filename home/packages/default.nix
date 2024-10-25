@@ -20,7 +20,11 @@
   gh = import ./gh;
   git = import ./git;
   gitui = import ./gitui;
+  helix = import ./helix;
+  lf = import ./lf;
   lsd = import ./lsd;
+  mpv = import ./mpv;
+  nix = import ./nix;
 
   thunderbird = import ./thunderbird;
 }

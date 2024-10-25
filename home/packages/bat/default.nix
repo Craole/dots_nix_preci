@@ -2,8 +2,8 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "Catppuccin-mocha";
       pager = "less -FR";
+      theme = "Catppuccin-mocha";
     };
     themes =
       let
