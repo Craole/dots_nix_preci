@@ -114,6 +114,12 @@
     hardwareClockInLocalTime = lib.mkDefault true;
   };
 
+  location = {
+    latitude = 18.0386;
+    longitude = 77.4904;
+    provider = "manual";
+  };
+
   i18n = {
     defaultLocale = lib.mkDefault "en_US.UTF-8";
   };
