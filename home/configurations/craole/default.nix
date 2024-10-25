@@ -27,12 +27,13 @@ let
   services = import ./services { inherit nixosConfig config prefs; };
   programs = import ./programs { inherit config prefs; };
 in
+# packages = import ../../packages;
 {
   imports = [
     services
     programs
 
-    ../packages/freetube
-    ../packages/helix
+    ../../packages/freetube
+    ../../packages/helix
   ];
 }
