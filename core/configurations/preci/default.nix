@@ -1,6 +1,6 @@
 {
   imports = [
-    ./system
+    ./system.nix
     # ./hyprland
   ];
 }
