@@ -13,14 +13,12 @@ in
         "${modifier},Shift+Return,exec,${terminal.secondary}"
         "${modifier},b,exec,${browser.primary}"
         "${modifier},Shift+b,exec,${browser.secondary}"
-        "${modifier},grave,exec,${TERMINAL}"
-        "${modifier},Shift+grave,exec,${TERMINAL_SECONDARY}"
-        "${modifier},c,exec,${VISUAL}"
-        "${modifier},Shift+c,exec,${VISUAL_SECONDARY}"
-        "${modifier},v,exec,${VISUAL}"
-        "${modifier},Shift+v,exec,${VISUAL_SECONDARY}"
-        "${modifier},w,exec,${editor.primary}"
-        "${modifier},Shift+w,exec,${editor.secondary}"
+        "${modifier},grave,exec,$TERMINAL"
+        "${modifier},Shift+grave,exec,$TERMINAL_SECONDARY"
+        "${modifier},v,exec,$VISUAL"
+        "${modifier},Shift+v,exec,$VISUAL_SECONDARY"
+        "${modifier},c,exec,${editor.primary}"
+        "${modifier},Shift+c,exec,${editor.secondary}"
       ];
 
       general = {
