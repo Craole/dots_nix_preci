@@ -1,4 +1,7 @@
 { prefs, ... }:
+let 
+inherit (prefs) modifier terminal browser editor;
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -6,18 +9,18 @@
       "$mod" = modifier;
 
       bind = [
-        "${modifier},Return,exec,${prefs.terminal.primary}"
-        "${modifier},Shift+Return,exec,${prefs.terminal.secondary}"
-        "${modifier},b,exec,${prefs.browser.primary}"
-        "${modifier},Shift+b,exec,${prefs.browser.secondary}"
+        "${modifier},Return,exec,${terminal.primary}"
+        "${modifier},Shift+Return,exec,${terminal.secondary}"
+        "${modifier},b,exec,${browser.primary}"
+        "${modifier},Shift+b,exec,${browser.secondary}"
         "${modifier},grave,exec,${TERMINAL}"
         "${modifier},Shift+grave,exec,${TERMINAL_SECONDARY}"
         "${modifier},c,exec,${VISUAL}"
         "${modifier},Shift+c,exec,${VISUAL_SECONDARY}"
         "${modifier},v,exec,${VISUAL}"
         "${modifier},Shift+v,exec,${VISUAL_SECONDARY}"
-        "${modifier},w,exec,${prefs.editor.primary}"
-        "${modifier},Shift+w,exec,${prefs.editor.secondary}"
+        "${modifier},w,exec,${editor.primary}"
+        "${modifier},Shift+w,exec,${editor.secondary}"
       ];
 
       general = {
