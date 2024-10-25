@@ -1,0 +1,7 @@
+{
+  imports = [
+    ./settings.nix
+    ./packages.nix
+    # ./style.nix
+  ];
+}

@@ -1,0 +1,28 @@
+{
+  pkgs,
+  userArgs,
+  ...
+}: let
+  command = userArgs.options.editor.code;
+  package =
+    if command == "codium"
+    then pkgs.vscodium-fhs
+    # else pkgs.vscode;
+    else pkgs.vscode-fhs;
+in {
+  imports = [
+    ./settings.nix
+    ./extensions.nix
+    ./keybindings.nix
+    ./tasks.nix
+    ./snippets.nix
+  ];
+  config = {
+    programs.vscode = {
+      enable = true;
+      inherit package;
+    };
+
+    home.sessionVariables.CODE = command;
+  };
+}

@@ -31,5 +31,8 @@ in
   imports = [
     services
     programs
+
+    ../packages/freetube
+    ../packages/helix
   ];
 }

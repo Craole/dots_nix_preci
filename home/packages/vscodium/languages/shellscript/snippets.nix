@@ -1,0 +1,1 @@
+{ programs.vscode.languageSnippets.shellscript = { }; }
