@@ -3,13 +3,10 @@
 }:
 
 let
-  packages = builtins.attrValues (
-    builtins.mapAttrs (name: path: import (path + "/default.nix")) (
-      builtins.attrNames (builtins.readDir ./packages)
-    )
+  # Import all directories in the current directory (home/packages)
+  packages = builtins.mapAttrs (name: path: import (path + "/default.nix")) (
+    builtins.attrNames (builtins.readDir ./.)
   );
 in
-{
-  inherit (pkgs) stdenv;
-  inherit (packages) git eza;
-}
+# Expose all packages as an attribute set
+packages

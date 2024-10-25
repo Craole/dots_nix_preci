@@ -25,7 +25,6 @@ let
   };
 
   #| Modules
-  # services = import ./services { inherit nixosConfig config prefs; };
   packages = import ../../packages;
 in
 {
