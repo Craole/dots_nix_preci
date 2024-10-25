@@ -211,7 +211,11 @@
     sound = {
       enable = true;
       mediaKeys = {
-        enable = config.desktopManager.plasma6.enable || config.desktopManager.gnome.enable;
+        enable =
+          let
+            inherit (config.desktopManager) plasma gnome;
+          in
+          !plasma6.enable || !gnome.enable;
         volumeStep = "5%";
       };
     };
