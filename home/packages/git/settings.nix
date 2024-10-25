@@ -3,12 +3,16 @@
     init = {
       defaultBranch = "main";
     };
+    core = {
+      editor = "$EDITOR";
+      whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
+    };
+    credentials.helper = "cache --timeout=3600";
     branch.autosetupmerge = "true";
-    push.default = "current";
     merge.stat = "true";
-    core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
     repack.usedeltabaseoffset = "true";
     pull.ff = "only";
+    push.default = "current";
     rebase = {
       autoSquash = true;
       autoStash = true;

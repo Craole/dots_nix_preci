@@ -2,6 +2,7 @@
 let
   #| Variables
   config = nixosConfig.home-manager.users.craole;
+  stateVersion = nixosConfig.system.stateVersion;
 
   prefs = {
     modifier = "SUPER";
@@ -24,16 +25,39 @@ let
   };
 
   #| Modules
-  services = import ./services { inherit nixosConfig config prefs; };
-  programs = import ./programs { inherit config prefs; };
+  # services = import ./services { inherit nixosConfig config prefs; };
+  custom = import ./programs { inherit config prefs; };
+  packages = import ../../packages;
 in
-# packages = import ../../packages;
 {
+  home = {
+    inherit stateVersion;
+    sessionVariables = {
+      EDITOR = prefs.editor.primary;
+      EDITOR_SECONDARY = prefs.editor.secondary;
+      VISUAL = prefs.visual.primary;
+      VISUAL_SECONDARY = prefs.visual.secondary;
+      BROWSER = prefs.browser.primary;
+      BROWSER_SECONDARY = prefs.browser.secondary;
+      TERMINAL = prefs.terminal.primary;
+      TERMINAL_SECONDARY = prefs.terminal.secondary;
+    };
+  };
   imports = [
-    services
-    programs
+    ./git.nix
+    # services
+    # custom
+    packages.git
+    # ../../packages/freetube
+    # ../../packages/helix
+    # ../../packages/git
+    # ../../packages/starship
+    # ../../packages/lsd
+    # ../../packages/eza
+    # ../../packages/foot
+    # # ../../packages/bat
+    # ../../packages/fd
+    # ../../packages/ripgrep
 
-    ../../packages/freetube
-    ../../packages/helix
   ];
 }

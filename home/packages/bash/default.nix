@@ -1,6 +1,8 @@
 {
   programs.bash = {
     enable = true;
+    enableCompletion = true;
+    historyFileSize = 10000;
     historyControl = [
       "erasedups"
       "ignoredups"

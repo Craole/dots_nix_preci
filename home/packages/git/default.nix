@@ -2,7 +2,7 @@
   imports = [
     ./alias.nix
     ./attribute.nix
-    ./credentials.nix
+    # ./credentials.nix
     ./settings.nix
     ./hook.nix
     ./ignore.nix

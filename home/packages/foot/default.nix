@@ -6,7 +6,7 @@
       main = {
         term = "xterm-256color";
         font = "monospace:size=12";
-        # dpi-aware = "yes";
+        dpi-aware = "yes";
       };
     };
   };

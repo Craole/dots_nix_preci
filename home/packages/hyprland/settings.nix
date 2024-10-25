@@ -1,7 +1,7 @@
-{ hostArgs, ... }:
+{ nixosConfig, ... }:
 let
   # inherit (coreArgs.lib) toString;
-  inherit (hostArgs) cpu gpu;
+  inherit (nixosConfig) cpu gpu;
 in
 # inherit (lib) mapAttrsToList;
 # inherit (config.nixpkgs.config) allowUnfree;

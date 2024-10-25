@@ -1,7 +1,7 @@
 {
   imports = [
     ./packages.nix
-    ./bindings.nix
+    # ./bindings.nix
     # ./settings.nix
     # ./rules.nix
   ];

@@ -9,5 +9,7 @@
     ];
     icons = true;
     git = true;
+    # enableFishIntegration = fish.enable;
+    # enableZshIntegration = zsh.enable;
   };
 }

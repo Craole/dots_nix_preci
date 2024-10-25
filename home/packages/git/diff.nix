@@ -1,11 +1,11 @@
-let
-  theme = "light"; # TODO: get the system theme
-in
+# let
+#   theme = "light"; # TODO: get the system theme
+# in
 {
   programs.git = {
     difftastic = {
       enable = true;
-      background = theme;
+      # background = theme;
       color = "always";
       # display = "inline";
     };

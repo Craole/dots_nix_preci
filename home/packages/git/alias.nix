@@ -9,6 +9,8 @@
     pu = "push";
     puf = "push --force";
     s = "status";
+    ss = "status --short";
+    spy = "status --porcelain &2>/dev/null";
 
     # | Checkout
     co = "checkout";
@@ -45,11 +47,33 @@
 
     # | Other
     lg = "log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %s %C(italic)- %an%C(reset)%C(magenta bold)%d%C(reset)' --all";
+    br = "branch";
     rs = "restore --staged";
     root = "rev-parse --show-toplevel";
+    pus = ''
+      !f() {
+        msg="Auto Update"; [ "$*" ] && msg="$*"; \
+        git commit --quiet --message="$msg" && \
+        git push
+      }; f
+    '';
+    up = ''
+      !f() {
+        [ "$(git status --porcelain)" ] && \
+        git add --all && \
+        git status --short && \
+        if [ -z "$1" ]; then \
+          git commit --quiet --message="Auto Update" && \
+          git push; \
+        else \
+          git commit --quiet --message="$1" && \
+          git push; \
+        fi
+      }; f
+    '';
   };
 
   home.shellAliases = {
-    cd-git-root = ''cd "$(git root)"'';
+    cd-groot = ''cd "$(git root)"'';
   };
 }
