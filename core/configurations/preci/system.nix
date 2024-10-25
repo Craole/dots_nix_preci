@@ -208,18 +208,6 @@
       };
     };
 
-    sound = {
-      enable = true;
-      mediaKeys = {
-        enable =
-          let
-            inherit (config.services.desktopManager) plasma6 gnome xfce;
-          in
-          !(plasma6.enable || gnome.enable || xfce.enable);
-        volumeStep = "5%";
-      };
-    };
-
     # xserver = {
     #   enable = true;
     #   xkb = {
@@ -227,6 +215,18 @@
     #     variant = "";
     #   };
     # };
+  };
+
+  sound = {
+    enable = true;
+    mediaKeys = {
+      enable =
+        let
+          inherit (config.services.desktopManager) plasma6 gnome xfce;
+        in
+        !(plasma6.enable || gnome.enable || xfce.enable);
+      volumeStep = "5%";
+    };
   };
 
   programs = {
