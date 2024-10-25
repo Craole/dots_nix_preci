@@ -41,22 +41,23 @@ in
       TERMINAL_SECONDARY = prefs.terminal.secondary;
     };
   };
-  imports = [
-    ./git.nix
-    ./helix.nix
-    # services
-    # custom
-    packages.git
-    # ../../packages/freetube
-    # ../../packages/helix
-    # ../../packages/git
-    # ../../packages/starship
-    # ../../packages/lsd
-    # ../../packages/eza
-    # ../../packages/foot
-    # # ../../packages/bat
-    # ../../packages/fd
-    # ../../packages/ripgrep
+  imports =
+    [
+      ./git.nix
+      ./helix.nix
 
-  ];
+    ]
+    ++ (with packages; [
+
+      helix
+      git
+
+      starship
+      fd
+      eza
+      foot
+      bat
+      ripgrep
+      lsd
+    ]);
 }
