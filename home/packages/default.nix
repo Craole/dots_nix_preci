@@ -16,6 +16,7 @@
   eza = import ./eza;
   fd = import ./fd;
   firefox = import ./firefox;
+  foot = import ./foot;
   fzf = import ./fzf;
   gh = import ./gh;
   git = import ./git;
