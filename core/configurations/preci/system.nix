@@ -213,7 +213,7 @@
       mediaKeys = {
         enable =
           let
-            inherit (config.desktopManager) plasma gnome xfce;
+            inherit (config.services.desktopManager) plasma gnome xfce;
           in
           !(plasma.enable || gnome.enable || xfce.enable);
         volumeStep = "5%";
