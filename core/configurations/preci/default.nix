@@ -130,9 +130,15 @@
           ];
         }
       ];
-      # wheelNeedsPassword = false; # TODO: This is supposedly unsafe
     };
     rtkit.enable = true;
+  };
+
+  console = {
+    packages = [ pkgs.terminus_font ];
+    font = "ter-u24n";
+    earlySetup = true;
+    useXkbConfig = true;
   };
 
   services = {
@@ -141,14 +147,26 @@
         enable = true;
         user = "craole";
       };
-      sddm.enable = true;
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
     };
 
     desktopManager = {
       plasma6.enable = true;
       # gnone.enable = true;
     };
-    blueman.enable = true;
+    kmscon = {
+      enable = true;
+      autologinUser = "craole";
+    };
+    upower = {
+      enable = true;
+    };
+    blueman = {
+      enable = true;
+    };
     libinput = {
       enable = true;
     };
