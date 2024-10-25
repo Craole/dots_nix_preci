@@ -24,8 +24,8 @@ let
   };
 
   #| Modules
-  services = import ./services.nix { inherit nixosConfig config prefs; };
-  programs = import ./programs.nix { inherit config prefs; };
+  services = import ./services { inherit nixosConfig config prefs; };
+  programs = import ./programs { inherit config prefs; };
 in
 {
   imports = [
