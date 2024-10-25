@@ -73,7 +73,7 @@ in
         lg = "log --oneline --graph --decorate"; # Pretty log output
         aa = "add --all"; # Add all changes to the index
         rb = "rebase"; # Start a rebase session
-        # pu='''!f() { [ \"$(git status --porcelain)\" ] && git add --all && git status --short && git commit --quiet --message=\"${*:-"Auto Update"}\" && git push; }; f''';
+        # pu=''!f() { [ \"$(git status --porcelain)\" ] && git add --all && git status --short && git commit --quiet --message=\"Auto Update\" && git push; }; f'';
 
         up = ''
           !f() {
