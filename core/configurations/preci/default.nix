@@ -97,7 +97,7 @@
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     pulseaudio.enable = lib.mkDefault false;
-    bluetooth.enable = lib.mkDefault true;
+    bluetooth=enable = lib.mkDefault true;
   };
 
   system = {
