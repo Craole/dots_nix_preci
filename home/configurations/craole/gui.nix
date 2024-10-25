@@ -1,18 +1,12 @@
 {
-  wayland.windowManager.hyprland.enable = true;
-  programs = {
-    firefox = {
+  services = {
+    blueman-applet.enable = true;
+    darkman = {
       enable = true;
-    };
-    mpv = {
-      enable = true;
-    };
-    foot = {
-      enable = true;
-      server.enable = true;
-    };
-    kitty = {
-      enable = true;
+      settings = {
+        lat = 18.0386;
+        lon = 77.4904;
+      };
     };
   };
 }

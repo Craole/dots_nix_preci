@@ -122,5 +122,18 @@ in
       enable = true;
       silent = true;
     };
+    ripgrep = {
+      enable = true;
+      arguments = [
+        "--smart-case"
+        "--max-columns-preview"
+        "--color=line:style:bold"
+      ];
+    };
+    fd = {
+      enable = true;
+      extraOptions = [ "--absolute-path" ];
+      ignores = [ ];
+    };
   };
 }
