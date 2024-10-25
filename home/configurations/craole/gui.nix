@@ -7,5 +7,12 @@
     mpv = {
       enable = true;
     };
+    foot = {
+      enable=true;
+      server.enable=true;
+    };
+    kitty={
+      enable=true;
+    };
   };
 }

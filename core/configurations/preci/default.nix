@@ -136,7 +136,7 @@
 
   console = {
     packages = [ pkgs.terminus_font ];
-    font = "ter-u24n";
+    font = "ter-u32n";
     earlySetup = true;
     useXkbConfig = true;
   };
@@ -157,16 +157,20 @@
       plasma6.enable = true;
       # gnone.enable = true;
     };
+    
     kmscon = {
       enable = true;
       autologinUser = "craole";
     };
+
     upower = {
       enable = true;
     };
+
     blueman = {
       enable = true;
     };
+    
     libinput = {
       enable = true;
     };
@@ -201,7 +205,8 @@
   };
 
   programs = {
-    # hyprland.enable = true;
+    hyprland.enable = true;
+    hyprlock.enable=true;
   };
 
   environment = {
