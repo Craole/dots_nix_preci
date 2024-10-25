@@ -178,6 +178,18 @@
       enable = true;
     };
 
+    redshift = {
+      enable = true;
+      brightness = {
+        day = 1;
+        night = 0.75;
+      };
+      temperature = {
+        day = 5500;
+        night = 3800;
+      };
+    };
+
     blueman = {
       enable = true;
     };
