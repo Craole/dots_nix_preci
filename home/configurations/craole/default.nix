@@ -42,7 +42,8 @@ in
     };
   };
   imports = [
-    ./programs
+    ./git.nix
+    ./helix.nix
     # services
     # custom
     packages.git
