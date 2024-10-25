@@ -26,7 +26,7 @@ let
 
   #| Modules
   # services = import ./services { inherit nixosConfig config prefs; };
-packages = import ../../packages;
+  packages = import ../../packages;
 in
 {
   home = {
