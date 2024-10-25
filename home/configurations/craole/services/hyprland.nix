@@ -1,6 +1,11 @@
 { prefs, ... }:
-let 
-inherit (prefs) modifier terminal browser editor;
+let
+  inherit (prefs)
+    modifier
+    terminal
+    browser
+    editor
+    ;
 in
 {
   wayland.windowManager.hyprland = {
@@ -21,40 +26,6 @@ in
         "${modifier},Shift+c,exec,${editor.secondary}"
       ];
 
-      general = {
-        gaps.inner = 10;
-        gaps.outer = 10;
-        gaps.top = 10;
-        gaps.bottom = 10;
-        gaps.left = 10;
-        gaps.right = 10;
-      };
-
-      window = {
-        titlebar = {
-          use-system-font = false;
-          center = "center";
-          left = "left";
-          right = "right";
-          font = "JetBrainsMono Nerd Font:style=Bold:size=12";
-        };
-        border.size = 1;
-        border.color = "#FF0000";
-        border.rounding = 10;
-        gaps.inner = 10;
-        gaps.outer = 10;
-        gaps.top = 10;
-        gaps.bottom = 10;
-        gaps.left = 10;
-        gaps.right = 10;
-        animations.enabled = true;
-        animations.duration = 0.2;
-        animations.easing = "in-out-quad";
-        animations.window.duration = 0.2;
-        animations.window.easing = "in-out-quad";
-        animations.fade.duration = 0.2;
-        animations.fade.easing = "in-out-quad";
-      };
     };
   };
 }
