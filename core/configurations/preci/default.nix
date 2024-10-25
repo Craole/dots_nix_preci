@@ -97,7 +97,7 @@
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     pulseaudio.enable = lib.mkDefault false;
-    bluetooth=enable = lib.mkDefault true;
+    bluetooth.enable = lib.mkDefault true;
   };
 
   system = {
@@ -157,7 +157,7 @@
       plasma6.enable = true;
       # gnone.enable = true;
     };
-    
+
     kmscon = {
       enable = true;
       autologinUser = "craole";
@@ -167,10 +167,10 @@
       enable = true;
     };
 
-    blueman = {
-      enable = true;
-    };
-    
+    # blueman = {
+    #   enable = true;
+    # };
+
     libinput = {
       enable = true;
     };
@@ -206,7 +206,7 @@
 
   programs = {
     hyprland.enable = true;
-    hyprlock.enable=true;
+    hyprlock.enable = true;
   };
 
   environment = {

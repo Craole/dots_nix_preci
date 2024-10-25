@@ -1,6 +1,7 @@
-{ config, editor, ... }:
+{ config, prefs, ... }:
 let
   apps = config.programs;
+  editor = prefs.editor.primary;
   inherit (apps) fish zsh;
 in
 {

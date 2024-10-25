@@ -8,11 +8,11 @@
       enable = true;
     };
     foot = {
-      enable=true;
-      server.enable=true;
+      enable = true;
+      server.enable = true;
     };
-    kitty={
-      enable=true;
+    kitty = {
+      enable = true;
     };
   };
 }
