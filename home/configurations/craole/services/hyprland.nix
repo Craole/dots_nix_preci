@@ -16,10 +16,10 @@ in
       bind = [
         "${modifier},Return,exec,${terminal.primary}"
         "${modifier},Shift+Return,exec,${terminal.secondary}"
-        "${modifier},b,exec,${browser.primary}"
-        "${modifier},Shift+b,exec,${browser.secondary}"
         "${modifier},grave,exec,$TERMINAL"
         "${modifier},Shift+grave,exec,$TERMINAL_SECONDARY"
+        "${modifier},b,exec,${browser.primary}"
+        "${modifier},Shift+b,exec,${browser.secondary}"
         "${modifier},v,exec,$VISUAL"
         "${modifier},Shift+v,exec,$VISUAL_SECONDARY"
         "${modifier},c,exec,${editor.primary}"
