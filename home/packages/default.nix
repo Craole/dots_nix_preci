@@ -1,22 +1,9 @@
-let
-  importAll =
-    path:
-    let
-      toImport = name: type: type == "directory" && name != "default.nix";
-      filterImport = name: type: !(toImport name type);
-      imports = builtins.attrNames (builtins.readDir path);
-    in
-    map (name: simpleImport "${toString path}/${name}") (filter filterImport imports);
+{ pkgs ? import <nixpkgs> {} }:
 
-  simpleImport =
-    path:
-    let
-      relativePath = removePrefix (toString ./.) path;
-      toImport = name: type: type == "regular" && hasSuffix ".nix" name;
-      modules = builtins.attrNames (builtins.readDir path);
-    in
-    map (name: import "${relativePath}/${name}") (filter filterImport modules);
+let
+  packages = builtins.attrValues (builtins.mapAttrs (name: path: import (path + "/default.nix")) (builtins.attrNames (builtins.readDir ./packages)));
 in
-{
-  imports = importAll ./.;
-}
+  {
+    inherit (pkgs) stdenv;
+    inherit (packages) git eza;
+  }
