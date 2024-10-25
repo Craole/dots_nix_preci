@@ -1,7 +1,9 @@
+{ config, pkgs, ... }:
+
 {
   programs.starship = {
     enable = true;
-    enableFishIntegration = fish.enable;
-    enableZshIntegration = zsh.enable;
+    # enableFishIntegration = config.programs.fish.enable;
+    # enableZshIntegration = config.programs.zsh.enable;
   };
 }
