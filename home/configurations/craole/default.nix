@@ -23,16 +23,13 @@ let
     };
   };
 
-  #| Moduules
-  home = import ./home.nix { inherit nixosConfig prefs; };
-  gui = import ./gui.nix;
-  tty = import ./tty.nix { inherit config prefs; };
-  hyprland = import ./hyprland.nix { inherit config prefs; };
+  #| Modules
+  services = import ./services.nix { inherit nixosConfig config prefs; };
+  programs = import ./programs.nix { inherit config prefs; };
 in
 {
   imports = [
-    home
-    gui
-    tty
+    services
+    programs
   ];
 }

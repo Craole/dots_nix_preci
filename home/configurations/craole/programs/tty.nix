@@ -124,15 +124,11 @@ in
     };
     ripgrep = {
       enable = true;
-      arguments = [
-        "--smart-case"
-        "--max-columns-preview"
-        "--color=line:style:bold"
-      ];
+      arguments = [ ];
     };
     fd = {
       enable = true;
-      extraOptions = [ "--absolute-path" ];
+      # extraOptions = [ "--absolute-path" ];
       ignores = [ ];
     };
   };
