@@ -182,7 +182,7 @@
     ollama = {
       enable = true;
       loadModels = [
-        # "mistral-nemo"
+        "mistral-nemo"
         # "yi-coder:9b"
       ];
     };
@@ -195,13 +195,13 @@
       jack.enable = true;
     };
 
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-    };
+    # xserver = {
+    #   enable = true;
+    #   xkb = {
+    #     layout = "us";
+    #     variant = "";
+    #   };
+    # };
   };
 
   programs = {
