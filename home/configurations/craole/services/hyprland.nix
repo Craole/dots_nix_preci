@@ -11,6 +11,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+
       "$mod" = modifier;
 
       bind = [
