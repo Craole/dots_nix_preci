@@ -181,8 +181,8 @@
     redshift = {
       enable = true;
       brightness = {
-        day = 1;
-        night = 0.75;
+        day = "1";
+        night = "0.75";
       };
       temperature = {
         day = 5500;
