@@ -13,5 +13,8 @@
     kitty = {
       enable = true;
     };
+    freetube = {
+      enable = true;
+    };
   };
 }
