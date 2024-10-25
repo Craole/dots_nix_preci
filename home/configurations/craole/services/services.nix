@@ -8,7 +8,7 @@ in
     darkman = {
       enable = true;
       settings = {
-        lat = latutude;
+        lat = latitude;
         lon = longitude;
       };
     };
