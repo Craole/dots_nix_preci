@@ -5,18 +5,28 @@ let
   stateVersion = nixosConfig.system.stateVersion;
 
   prefs = {
-    modifier = "SUPER";
     browser = {
       primary = "brave";
       secondary = "firefox";
     };
-    terminal = {
-      primary = "footclient";
-      secondary = "kitty";
-    };
     editor = {
       primary = "hx";
       secondary = "zeditor";
+    };
+    modifier = "SUPER";
+    launcher = {
+      primary = {
+        name = "rofi";
+        cmd = "rofi -show drun";
+      };
+      secondary = {
+        name = "anyrun";
+        cmd = "anyrun";
+      };
+    };
+    terminal = {
+      primary = "footclient";
+      secondary = "kitty";
     };
     visual = {
       primary = "code";
@@ -45,19 +55,18 @@ in
     [
       ./git.nix
       ./helix.nix
-
     ]
     ++ (with packages; [
-
-      helix
-      git
-
-      starship
-      fd
-      eza
-      foot
       bat
-      ripgrep
+      eza
+      fd
+      foot
+      gh
+      gitui
+      git
+      helix
       lsd
+      ripgrep
+      starship
     ]);
 }
