@@ -45,7 +45,7 @@ in
     ./programs
     # services
     # custom
-    packages.git
+    # packages.git
     # ../../packages/freetube
     # ../../packages/helix
     # ../../packages/git
