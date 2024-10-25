@@ -1,13 +1,8 @@
 { config, lib, ... }:
 with lib;
 with types;
-
-with config.dot;
-with dib;
-with sources.internal;
 {
   options.dots = {
-
     dot = mkOption {
       description = "The main entrypoint to the config";
       example = "/dots";
