@@ -40,16 +40,17 @@ in
 {
   home = {
     inherit stateVersion;
-    sessionVariables = {
-      EDITOR = prefs.editor.primary;
-      EDITOR_SECONDARY = prefs.editor.secondary;
-      VISUAL = prefs.visual.primary;
-      VISUAL_SECONDARY = prefs.visual.secondary;
-      BROWSER = prefs.browser.primary;
-      BROWSER_SECONDARY = prefs.browser.secondary;
-      TERMINAL = prefs.terminal.primary;
-      TERMINAL_SECONDARY = prefs.terminal.secondary;
-    };
+    inherit (config.DOTS) sessionVariables;
+    # sessionVariables = with config.DOTS.Applications; {
+    #   EDITOR = editor.primary;
+    #   EDITOR_SECONDARY = editor.secondary;
+    #   VISUAL = visual.primary;
+    #   VISUAL_SECONDARY = visual.secondary;
+    #   BROWSER = browser.primary;
+    #   BROWSER_SECONDARY = browser.secondary;
+    #   TERMINAL = terminal.primary;
+    #   TERMINAL_SECONDARY = terminal.secondary;
+    # };
   };
   imports =
     [

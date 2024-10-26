@@ -5,9 +5,15 @@ with types;
 {
   options.DOTS = with config.DOTS; {
     sessionVariables = mkOption {
-      default = {
-        EDITOR = "hx";
-        VISUAL = "code";
+      default = with Applications; {
+        EDITOR = editor.primary;
+        EDITOR_SECONDARY = editor.secondary;
+        VISUAL = visual.primary;
+        VISUAL_SECONDARY = visual.secondary;
+        BROWSER = browser.primary;
+        BROWSER_SECONDARY = browser.secondary;
+        TERMINAL = terminal.primary;
+        TERMINAL_SECONDARY = terminal.secondary;
       };
       description = ''
         A set of environment variables used in the global environment.
@@ -45,7 +51,7 @@ with types;
       type = attrsOf (nullOr (either str path));
     };
 
-    applications = with applications; {
+    Applications = with Applications; {
       launcher = {
         modifier = mkOption {
           description = "Modifier key for window managers";
@@ -130,7 +136,7 @@ with types;
             description = "Primary browser name";
           };
           command = mkOption {
-            type = str;
+            # type = str;
             default = "brave";
             description = "Primary browser command";
           };
@@ -142,7 +148,7 @@ with types;
             description = "Secondary browser name";
           };
           command = mkOption {
-            type = str;
+            # type = str;
             default = "microsoft-edge-dev";
             description = "Secondary browser command";
           };
