@@ -19,20 +19,21 @@
     let
       flakePath = "$HOME/.dots";
       flake = builtins.getEnv "PWD";
-      dlib = "${flakePath}/lib";
     in
+    # dlib = import "${flakePath}/lib";
     {
       nixosConfigurations = {
         preci = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./core/configurations/preci
+            ./lib
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 backupFileExtension = "bac";
                 extraSpecialArgs = {
-                  inherit inputs dlib flakePath;
+                  inherit inputs flakePath;
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
@@ -47,7 +48,6 @@
               inputs
               flakePath
               flake
-              dlib
               ;
           };
         };
