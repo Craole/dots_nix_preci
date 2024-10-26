@@ -26,8 +26,8 @@
         preci = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            ./core/libraries
             ./core/configurations/preci
-            ./lib
             home-manager.nixosModules.home-manager
             {
               home-manager = {

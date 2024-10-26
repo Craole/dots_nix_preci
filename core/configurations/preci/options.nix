@@ -1,8 +1,9 @@
 { config, lib, ... }:
 with lib;
 with types;
+with config.DOTS.Libraries;
 {
-  options.dots = {
+  options.DOTS = {
     dot = mkOption {
       description = "The main entrypoint to the config";
       example = "/dots";
