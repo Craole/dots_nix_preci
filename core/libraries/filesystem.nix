@@ -298,9 +298,9 @@ in
           nullOrLocation = locateParentByChildren [
             ".git"
             ".gitignore"
-            ".flake.nix"
             ".envrc"
             ".cargo.lock"
+            "flake.nix"
             "package.json"
             "Cargo.lock"
             "Cargo.toml"
