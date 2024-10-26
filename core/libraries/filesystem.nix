@@ -295,7 +295,7 @@ in
       example = ''locateProjectRoot ==> "/path/to/project/root"'';
       default =
         let
-          nullOrLocation = locateParentByChildren [
+          nullOrLocation = toString locateParentByChildren [
             ".git"
             ".gitignore"
             ".envrc"
