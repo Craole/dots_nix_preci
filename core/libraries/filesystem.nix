@@ -300,6 +300,7 @@ in
             ".gitignore"
             ".envrc"
             ".cargo.lock"
+            "flake.lock"
             "flake.nix"
             "package.json"
             "Cargo.lock"
