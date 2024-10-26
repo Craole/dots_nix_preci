@@ -26,8 +26,9 @@
         preci = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./core/libraries
-            ./core/configurations/preci
+            ./libraries
+            ./options/core
+            ./configurations/preci
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -38,6 +39,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.craole.imports = [
+                  ./options/home
                   ./home/configurations/craole
                 ];
               };
