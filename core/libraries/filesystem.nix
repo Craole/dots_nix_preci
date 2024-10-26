@@ -258,9 +258,9 @@ in
       default =
         _children:
         let
-          search = _child: toString (locateDominatingFile _child ./.);
+          search = _child: locateDominatingFile _child ./.;
           result = filter (_p: _p != null) (map search (toList _children));
-          nullOrLocation = if length result > 0 then (head result).path else null;
+          nullOrLocation = if length result > 0 then toString (head result).path else null;
         in
         nullOrLocation;
     };
