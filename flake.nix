@@ -19,6 +19,7 @@
     let
       flakePath = "$HOME/.dots";
       flake = builtins.getEnv "PWD";
+      dlib = "${flakePath}/lib";
     in
     {
       nixosConfigurations = {
