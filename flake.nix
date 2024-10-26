@@ -32,7 +32,7 @@
               home-manager = {
                 backupFileExtension = "bac";
                 extraSpecialArgs = {
-                  inherit inputs flakePath;
+                  inherit inputs dlib flakePath;
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
