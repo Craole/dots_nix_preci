@@ -43,7 +43,12 @@
             }
           ];
           specialArgs = {
-            inherit inputs flakePath flake;
+            inherit
+              inputs
+              flakePath
+              flake
+              dlib
+              ;
           };
         };
       };
