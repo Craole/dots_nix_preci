@@ -98,6 +98,11 @@ with types;
             description = "The primary terminal emulator name";
             type = either (either package path) str;
           };
+          path = mkOption {
+            default = pkgs.foot;
+            description = "The primary terminal emulator path";
+            type = either (either package path) str;
+          };
           command = mkOption {
             default = "footclient";
             description = "The primary terminal emulator command";
@@ -110,8 +115,13 @@ with types;
             description = "The secondary terminal emulator name";
             type = either (either package path) str;
           };
-          command = mkOption {
+          path = mkOption {
             default = pkgs.wezterm;
+            description = "The secondary terminal emulator path";
+            type = either (either package path) str;
+          };
+          command = mkOption {
+            default = terminal.secondary.path;
             description = "The secondary terminal emulator command";
             type = either (either package path) str;
           };
@@ -125,20 +135,30 @@ with types;
             description = "The primary code ediitor";
             type = either (either package path) str;
           };
-          command = mkOption {
+          path = mkOption {
             default = pkgs.helix;
-            description = "The primary code ediitor";
+            description = "The primary code editor path";
+            type = either (either package path) str;
+          };
+          command = mkOption {
+            default = editor.primary.path;
+            description = "The primary code editor command";
             type = either (either package path) str;
           };
         };
         secondary = {
           name = mkOption {
-            default = visual.secondary.name;
+            default = "Nano";
+            description = "The secondary code ediitor";
+            type = either (either package path) str;
+          };
+          path = mkOption {
+            default = pkgs.nano;
             description = "The secondary code ediitor";
             type = either (either package path) str;
           };
           command = mkOption {
-            default = visual.secondary.command;
+            default = editor.secondary.path;
             description = "The secondary code ediitor";
             type = either (either package path) str;
           };
@@ -149,12 +169,18 @@ with types;
         primary = {
           name = mkOption {
             default = "Visual Studio Code";
-            description = "The primary Integred Development Environment";
+            description = "The primary gui code editor name";
+            type = either (either package path) str;
+          };
+          path = mkOption {
+            default = pkgs.vscode-fhs;
+            description = "The primary gui code editor path";
             type = either (either package path) str;
           };
           command = mkOption {
-            default = pkgs.vscode-fhs;
-            description = "The primary IDE command";
+            default = visual.secondary.path;
+            description = "The primary gui code editor command";
+            type = either (either package path) str;
           };
         };
         secondary = {
@@ -170,6 +196,7 @@ with types;
           command = mkOption {
             default = visual.secondary.path;
             description = "The secondary IDE command";
+            type = either (either package path) str;
           };
         };
       };
