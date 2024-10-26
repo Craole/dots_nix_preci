@@ -3,7 +3,7 @@ with lib;
 # with filesystem;
 with types;
 {
-  options.DOTS.Defaults = {
+  options.DOTS = with config.DOTS; {
     sessionVariables = mkOption {
       default = {
         EDITOR = "hx";
@@ -147,31 +147,6 @@ with types;
             description = "Secondary browser command";
           };
         };
-      };
-
-      bat = {
-        enable = mkEnableOption "bat";
-        package = mkPackageOption pkgs "bat" { };
-        config = mkOption { default = { }; };
-        themes = mkOption { default = { }; };
-        syntaxes = mkOption { default = { }; };
-
-        export = mkOption {
-          default = {
-            inherit (bat)
-              enable
-              package
-              config
-              themes
-              ;
-          };
-        };
-      };
-
-      btop = {
-        enable = mkEnableOption "btop";
-        package = mkPackageOption pkgs "btop" { };
-        export = mkOption { default = if btop.enable then { inherit (btop) enable package; } else { }; };
       };
 
       # git = with git; {
