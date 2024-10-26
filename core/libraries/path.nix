@@ -9,10 +9,10 @@ with types;
 with filesystem;
 let
   mod = "path";
-  cfg = config.dots.lib.${mod};
+  cfg = config.DOTS.Libraries.${mod};
 in
 {
-  options.dots.lib.${mod} = with cfg; {
+  options.DOTS.Libraries.${mod} = with cfg; {
 
     listFilesRecursively = mkOption {
       description = "List all nix paths in a directory.";
@@ -101,61 +101,61 @@ in
         map (module: import module) modules;
     };
 
-    locateParentByChildren = mkOption {
-      description = "Find the absolute path of the parent directory of an item or a list of children.";
-      example = ''locateParentByChildren "src" ==> "/path/to/project"'';
-      default =
-        children:
-        let
-          search = child: filesystem.locateDominatingFile child ./.;
-          result = filter (path: path != null) (map search (toList children));
-          nullOrLocation = if length result > 0 then (head result).path else null;
-        in
-        nullOrLocation;
-    };
+    # locateParentByChildren = mkOption {
+    #   description = "Find the absolute path of the parent directory of an item or a list of children.";
+    #   example = ''locateParentByChildren "src" ==> "/path/to/project"'';
+    #   default =
+    #     children:
+    #     let
+    #       search = child: filesystem.locateDominatingFile child ./.;
+    #       result = filter (path: path != null) (map search (toList children));
+    #       nullOrLocation = if length result > 0 then (head result).path else null;
+    #     in
+    #     nullOrLocation;
+    # };
 
-    locateParentByName = mkOption {
-      description = "Find the absolute path of a specific path (by name) in a parent directory.";
-      example = ''locateParentByName "src" ==> "/path/to/project/src"'';
-      default =
-        name:
-        let
-          result = cfg.locateParentByChildren name;
-          nullOrLocation = if result != null then result + "/${name}" else null;
-        in
-        nullOrLocation;
-    };
+    # locateParentByName = mkOption {
+    #   description = "Find the absolute path of a specific path (by name) in a parent directory.";
+    #   example = ''locateParentByName "src" ==> "/path/to/project/src"'';
+    #   default =
+    #     name:
+    #     let
+    #       result = cfg.locateParentByChildren name;
+    #       nullOrLocation = if result != null then result + "/${name}" else null;
+    #     in
+    #     nullOrLocation;
+    # };
 
-    locateParentByNameOrChildren = mkOption {
-      description = "Find the absolute path of a parent directory by name, falling back to files or a list of files for search.";
-      example = ''locateParentByNameOrChildren "src" [".git" ".gitignore" ".flake.nix"] ==> "/path/to/project/root"'';
-      default =
-        name: children:
-        let
-          byName = cfg.parentByName name;
-          byChildren = cfg.parentByChildren children;
-          nullOrLocation = if byName != null then byName else byChildren;
-        in
-        nullOrLocation;
-    };
+    # locateParentByNameOrChildren = mkOption {
+    #   description = "Find the absolute path of a parent directory by name, falling back to files or a list of files for search.";
+    #   example = ''locateParentByNameOrChildren "src" [".git" ".gitignore" ".flake.nix"] ==> "/path/to/project/root"'';
+    #   default =
+    #     name: children:
+    #     let
+    #       byName = cfg.parentByName name;
+    #       byChildren = cfg.parentByChildren children;
+    #       nullOrLocation = if byName != null then byName else byChildren;
+    #     in
+    #     nullOrLocation;
+    # };
 
-    locateProjectRoot = mkOption {
-      description = "Find the absolute path of the project root.";
-      example = ''locateProjectRoot ==> "/path/to/project/root"'';
-      default =
-        let
-          nullOrLocation = cfg.locateParentByChildren [
-            ".git"
-            ".gitignore"
-            ".flake.nix"
-            ".envrc"
-            ".cargo.lock"
-            "package.json"
-            "Cargo.lock"
-            "Cargo.toml"
-          ];
-        in
-        nullOrLocation;
-    };
+    # locateProjectRoot = mkOption {
+    #   description = "Find the absolute path of the project root.";
+    #   example = ''locateProjectRoot ==> "/path/to/project/root"'';
+    #   default =
+    #     let
+    #       nullOrLocation = cfg.locateParentByChildren [
+    #         ".git"
+    #         ".gitignore"
+    #         ".flake.nix"
+    #         ".envrc"
+    #         ".cargo.lock"
+    #         "package.json"
+    #         "Cargo.lock"
+    #         "Cargo.toml"
+    #       ];
+    #     in
+    #     nullOrLocation;
+    # };
   };
 }

@@ -252,6 +252,22 @@ in
         map (_module: import _module) modules;
     };
 
+    locateParentByChild = mkOption {
+      description = "Find the absolute path of the first parent directory of an item or a list of children.";
+      example = ''parentByChild "src" ==> "/path/to/project"'';
+      default =
+        _child:
+        let
+          # search = _child: locateDominatingFile _child ./.;
+          # result = filter (_p: _p != null) (map search (toList _children));
+          # nullOrLocation = if length result > 0 then (head result).path else null;
+          result = locateDominatingFile _child ./.;
+          nullOrLocation = result;
+          absPath = if result != null then builtins.toString result.path else null;
+        in
+        nullOrLocation;
+    };
+
     locateParentByChildren = mkOption {
       description = "Find the absolute path of the first parent directory of an item or a list of children.";
       example = ''parentByChildren "src" ==> "/path/to/project"'';
@@ -260,7 +276,7 @@ in
         let
           search = _child: locateDominatingFile _child ./.;
           result = filter (_p: _p != null) (map search (toList _children));
-          nullOrLocation = if length result > 0 then toString (head result).path else null;
+          nullOrLocation = if length result > 0 then (head result).path else null;
         in
         nullOrLocation;
     };

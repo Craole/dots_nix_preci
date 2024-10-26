@@ -1,7 +1,6 @@
 { config, lib, ... }:
 let
   #| External libraries
-
   inherit (lib) mkOption filter;
   inherit (lib.lists)
     any
@@ -19,11 +18,11 @@ let
 
   #| Internal libraries
   mod = "ignore";
-  inherit (config) dot;
-  inherit (dot.libraries.lists) clean infixed suffixed;
+  inherit (config) DOTS;
+  inherit (DOTS.Libraries.lists) clean infixed suffixed;
 in
 {
-  options.dot.libraries.${mod} = with config.dot.libraries.${mod}; {
+  options.DOTS.Libraries.${mod} = with config.DOTS.Libraries.${mod}; {
     perDot =
       let
         ignore = [

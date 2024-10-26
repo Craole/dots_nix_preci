@@ -1,13 +1,15 @@
 { config, lib, ... }:
 with lib;
+# with filesystem;
 with types;
 with config.DOTS.Libraries;
 {
   options.DOTS = {
-    dot = mkOption {
+    RootDir = mkOption {
       description = "The main entrypoint to the config";
       example = "/dots";
-      default = toString locateProjectRoot;
+      default = toString filesystem.locateProjectRoot;
+      # default = (locateDominatingFile "flake.nix" ./.).path;
       type = path;
     };
 

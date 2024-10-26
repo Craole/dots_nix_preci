@@ -8,7 +8,7 @@ let
   inherit (lib.strings)
     # stringToCharacters
     # hasPrefix
-    # hasSuffix
+    hasSuffix
     hasInfix
     splitString
     # removeSuffix
@@ -20,12 +20,12 @@ let
   inherit (lib.types) path;
 
   #| Internal libraries
-  inherit (config) dot;
-  inherit (dot.libraries.filesystem) locateProjectRoot pathOf;
+  inherit (config.DOTS) Libraries;
+  inherit (Libraries.filesystem) locateProjectRoot pathOf;
 in
-with dot.libraries.${mod};
+with Libraries.${mod};
 {
-  options.dot.libraries.${mod} = {
+  options.DOTS.Libraries.${mod} = {
 
     isNixFile = mkOption {
       description = "Check if a file is a Nix file";
