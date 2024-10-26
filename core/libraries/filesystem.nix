@@ -258,12 +258,8 @@ in
       default =
         _child:
         let
-          # search = _child: locateDominatingFile _child ./.;
-          # result = filter (_p: _p != null) (map search (toList _children));
-          # nullOrLocation = if length result > 0 then (head result).path else null;
           result = locateDominatingFile _child ./.;
-          nullOrLocation = result;
-          absPath = if result != null then builtins.toString result.path else null;
+          nullOrLocation = if result != null then builtins.toString result.path else null;
         in
         nullOrLocation;
     };

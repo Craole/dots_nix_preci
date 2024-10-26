@@ -53,6 +53,7 @@ in
   };
   imports =
     [
+      ./options.nix
       ./git.nix
       ./helix.nix
     ]
