@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 # with filesystem;
 with types;
@@ -6,14 +11,16 @@ with types;
   options.DOTS = with config.DOTS; {
     sessionVariables = mkOption {
       default = with Applications; {
-        EDITOR = editor.primary;
-        EDITOR_SECONDARY = editor.secondary;
-        VISUAL = visual.primary;
-        VISUAL_SECONDARY = visual.secondary;
-        BROWSER = browser.primary;
-        BROWSER_SECONDARY = browser.secondary;
-        TERMINAL = terminal.primary;
-        TERMINAL_SECONDARY = terminal.secondary;
+        EDITOR = editor.primary.command;
+        EDITOR_SECONDARY = editor.secondary.command;
+        VISUAL = visual.primary.command;
+        VISUAL_SECONDARY = visual.secondary.command;
+        BROWSER = browser.primary.command;
+        BROWSER_SECONDARY = browser.secondary.command;
+        TERMINAL = terminal.primary.command;
+        TERMINAL_SECONDARY = terminal.secondary.command;
+        LAUNCHER = launcher.primary.command;
+        LAUNCHER_SECONDARY = launcher.secondary.command;
       };
       description = ''
         A set of environment variables used in the global environment.
@@ -60,97 +67,147 @@ with types;
         };
         primary = {
           name = mkOption {
-            type = str;
-            default = "rofi";
+            default = pkgs.rofi;
             description = "Launcher name";
+            type = either (either package path) str;
           };
           command = mkOption {
-            type = str;
-            default = "rofi -show-icons -show drun";
             description = "Launcher command";
+            default = "rofi -show-icons -show drun";
+            type = either (either package path) str;
           };
         };
         secondary = {
           name = mkOption {
-            type = str;
-            default = "anyrun";
+            default = pkgs.anyrun;
             description = "SeconLauncher name";
+            type = either (either package path) str;
           };
           command = mkOption {
-            type = str;
-            default = "anyrun";
+            default = pkgs.anyrun;
             description = "Launcher command";
+            type = either (either package path) str;
           };
         };
       };
 
       terminal = {
-        primary = mkOption {
-          default = "foot";
-          description = "Primary terminal emulator";
-          type = str;
+        primary = {
+          name = mkOption {
+            default = "Foot";
+            description = "The primary terminal emulator name";
+            type = either (either package path) str;
+          };
+          command = mkOption {
+            default = "footclient";
+            description = "The primary terminal emulator command";
+            type = either (either package path) str;
+          };
         };
-        secondary = mkOption {
-          default = "wezterm";
-          description = "Secondary terminal emulator";
-          type = str;
-        };
-        tertiary = mkOption {
-          default = "kitty";
-          description = "Teritiary terminal emulator";
-          type = str;
+        secondary = {
+          name = mkOption {
+            default = "Wezterm";
+            description = "The secondary terminal emulator name";
+            type = either (either package path) str;
+          };
+          command = mkOption {
+            default = pkgs.wezterm;
+            description = "The secondary terminal emulator command";
+            type = either (either package path) str;
+          };
         };
       };
 
       editor = {
-        primary = mkOption {
-          description = "The primary code editor";
-          default = "hx";
-          type = str;
+        primary = {
+          name = mkOption {
+            default = "Helix Editor";
+            description = "The primary code ediitor";
+            type = either (either package path) str;
+          };
+          command = mkOption {
+            default = pkgs.helix;
+            description = "The primary code ediitor";
+            type = either (either package path) str;
+          };
         };
-        secondary = mkOption {
-          description = "The secondare code editor";
-          default = "code";
-          type = str;
+        secondary = {
+          name = mkOption {
+            default = visual.secondary.name;
+            description = "The secondary code ediitor";
+            type = either (either package path) str;
+          };
+          command = mkOption {
+            default = visual.secondary.command;
+            description = "The secondary code ediitor";
+            type = either (either package path) str;
+          };
         };
       };
 
       visual = {
-        primary = mkOption {
-          description = "The primary Integred Development Environment";
-          default = "code";
-          type = str;
+        primary = {
+          name = mkOption {
+            default = "Visual Studio Code";
+            description = "The primary Integred Development Environment";
+            type = either (either package path) str;
+          };
+          command = mkOption {
+            default = pkgs.vscode-fhs;
+            description = "The primary IDE command";
+          };
         };
-        secondary = mkOption {
-          description = "The secondary Integred Development Environment";
-          default = "zed";
-          type = str;
+        secondary = {
+          name = mkOption {
+            default = "Zed Editor";
+            description = "The secondary Integred Development Environment";
+          };
+          path = mkOption {
+            default = pkgs.zed-editor;
+            description = "Secondary browser name";
+            type = either (either package path) str;
+          };
+          command = mkOption {
+            default = visual.secondary.path;
+            description = "The secondary IDE command";
+          };
         };
       };
 
       browser = {
         primary = {
           name = mkOption {
+            default = "Brave";
+            description = "Secondary browser title";
             type = str;
-            default = "brave";
-            description = "Primary browser name";
+          };
+          path = mkOption {
+            default = pkgs.brave;
+            description = "Secondary browser name";
+            type = either (either package path) str;
           };
           command = mkOption {
-            # type = str;
-            default = "brave";
-            description = "Primary browser command";
+            default = browser.secondary.path;
+            description = "Secondary browser command";
+            type = either (either package path) str;
           };
         };
         secondary = {
           name = mkOption {
-            type = str;
             default = "Microsoft Edge";
+            description = "Secondary browser title";
+            type = str;
+          };
+          path = mkOption {
+            default = pkgs.microsoft-edge-beta;
+            # default = pkgs.microsoft-edge-dev;
             description = "Secondary browser name";
+            type = either (either package path) str;
           };
           command = mkOption {
-            # type = str;
-            default = "microsoft-edge-dev";
+            default = browser.secondary.path;
             description = "Secondary browser command";
+            type = either (either package path) str;
           };
         };
       };
