@@ -258,7 +258,7 @@ in
       default =
         _children:
         let
-          search = _child: locateDominatingFile _child ./.;
+          search = _child: toString (locateDominatingFile _child ./.);
           result = filter (_p: _p != null) (map search (toList _children));
           nullOrLocation = if length result > 0 then (head result).path else null;
         in
@@ -295,7 +295,7 @@ in
       example = ''locateProjectRoot ==> "/path/to/project/root"'';
       default =
         let
-          nullOrLocation = toString (locateParentByChildren [
+          nullOrLocation = locateParentByChildren [
             ".git"
             ".gitignore"
             ".envrc"
@@ -305,7 +305,7 @@ in
             "package.json"
             "Cargo.lock"
             "Cargo.toml"
-          ]);
+          ];
         in
         nullOrLocation;
     };
