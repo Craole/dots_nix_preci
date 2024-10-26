@@ -295,7 +295,7 @@ in
       example = ''locateProjectRoot ==> "/path/to/project/root"'';
       default =
         let
-          nullOrLocation = toString locateParentByChildren [
+          nullOrLocation = toString (locateParentByChildren [
             ".git"
             ".gitignore"
             ".envrc"
@@ -305,7 +305,7 @@ in
             "package.json"
             "Cargo.lock"
             "Cargo.toml"
-          ];
+          ]);
         in
         nullOrLocation;
     };
