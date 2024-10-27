@@ -28,7 +28,7 @@
           modules = [
             ./libraries
             ./options/core
-            ./configurations/preci
+            ./configurations/core
             home-manager.nixosModules.home-manager
             {
               home-manager = {

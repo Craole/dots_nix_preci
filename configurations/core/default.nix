@@ -1,6 +1,6 @@
-{ config, ... }:
+{ config, modulesPath, ... }:
 let
-  current = preci;
+  current = "preci";
 in
 {
   imports = [
@@ -9,5 +9,5 @@ in
     ./victus
   ];
 
-  config = config.DOTS.Systems.${current};
+  config.DOTS.Systems.${current}.enable = true;
 }
