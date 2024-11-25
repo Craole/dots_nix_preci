@@ -9,7 +9,7 @@ with lib;
 with types;
 {
   options.DOTS.Applications = with config.DOTS.Applications; {
-    launcher = {
+    launcher = with launcher; {
       modifier = mkOption {
         description = "Modifier key for window managers";
         default = "SUPER";
@@ -17,8 +17,13 @@ with types;
       };
       primary = {
         name = mkOption {
-          default = pkgs.rofi;
+          default = "Rofi";
           description = "Launcher name";
+          type = either (either package path) str;
+        };
+        path = mkOption {
+          default = pkgs.rofi;
+          description = "The primary launcher path";
           type = either (either package path) str;
         };
         command = mkOption {
@@ -29,13 +34,18 @@ with types;
       };
       secondary = {
         name = mkOption {
-          default = pkgs.anyrun;
+          default = "Anyrun";
           description = "SeconLauncher name";
           type = either (either package path) str;
         };
-        command = mkOption {
+        path = mkOption {
           default = pkgs.anyrun;
-          description = "Launcher command";
+          description = "The secondary launcher path";
+          type = either (either package path) str;
+        };
+        command = mkOption {
+          default = secondary.path;
+          description = "The secondary launcher command";
           type = either (either package path) str;
         };
       };

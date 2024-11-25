@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   mod = "preci";
   cfg = config.DOTS.Systems.${mod};
@@ -8,46 +13,54 @@ with types;
 {
   options.DOTS.Systems.${mod} = {
     enable = mkEnableOption "Dell Precision M2800";
-    conf = mkOption {
-      default = {
+    allowDualBoot = mkEnableOption "Allow dual booting" // {
+      default = true;
+    };
 
-        boot = {
-          initrd = {
-            availableKernelModules = [
-              "xhci_pci"
-              "ehci_pci"
-              "ahci"
-              "usb_storage"
-              "sd_mod"
-              "sr_mod"
-              "sdhci_pci"
-            ];
-            kernelModules = [ ];
-            luks.devices = {
-              "luks-d6bafe54-e55b-49b8-ab7c-18380939f56f" = {
-                device = "/dev/disk/by-uuid/d6bafe54-e55b-49b8-ab7c-18380939f56f";
-              };
-              "luks-540965a0-c573-42f9-8d14-2ae37c3715e6" = {
-                device = "/dev/disk/by-uuid/540965a0-c573-42f9-8d14-2ae37c3715e6";
-              };
-            };
-          };
-
-          loader = {
-            systemd-boot.enable = true;
-            efi.canTouchEfiVariables = true;
-          };
-
-          kernelModules = [ "kvm-intel" ];
-          extraModulePackages = [ ];
-        };
+    location = {
+      timeZone = mkOption {
+        description = "The time zone used for displaying time and dates.";
+        default = "America/Jamaica";
+        type = nullOr str;
       };
-      description = "Preci configuration";
-      type = attrs;
+
+      latitude = mkOption {
+        description = "The latitudinal coordinate as a decimal between `-90.0` and `90.0`";
+        default = 18.015;
+        type = float;
+      };
+
+      longitude = mkOption {
+        description = "The longitudinal coordinate as a decimal between `-180.0` and `180.0`";
+        default = -77.5;
+        type = float;
+      };
     };
   };
 
   config = mkIf cfg.enable {
-    inherit cfg;
+    # inherit (cfg)
+    # boot
+    # fileSystems
+    # swapDevices
+    # nix
+    # networking
+    # nixpkgs
+    # hardware
+    # system
+
+    time = {
+      inherit (cfg.location) timeZone;
+      hardwareClockInLocalTime = cfg.allowDualBoot;
+    };
+    # i18n
+    # security
+    # console
+    # services
+    # programs
+    # environment
+    # fonts
+    # users
+    # ;
   };
 }
